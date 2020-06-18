@@ -6,12 +6,22 @@ public class PagoCredito {
 
     protected int codigo;
     protected double monto;
+    protected TablaAmortizacion tablaAmortizacion;
     protected Date fechaPago;
 
-    public PagoCredito(int codigo, double monto, Date fechaPago) {
+    public PagoCredito(int codigo, double monto, TablaAmortizacion tablaAmortizacion, Date fechaPago) {
         this.codigo = codigo;
         this.monto = monto;
+        this.tablaAmortizacion = tablaAmortizacion;
         this.fechaPago = fechaPago;
+    }
+
+    public TablaAmortizacion getTablaAmortizacion() {
+        return tablaAmortizacion;
+    }
+
+    public void setTablaAmortizacion(TablaAmortizacion tablaAmortizacion) {
+        this.tablaAmortizacion = tablaAmortizacion;
     }
 
     public int getCodigo() {

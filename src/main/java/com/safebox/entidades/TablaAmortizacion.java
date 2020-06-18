@@ -11,17 +11,19 @@ public class TablaAmortizacion {
     protected double pagoInteres;
     protected double pagoCapital;
     protected double saldo;
+    protected Credito credito;
     protected Date Fecha_Vencimiento;
     protected double mora;
     protected String estado;
 
-    public TablaAmortizacion(int codigo, int periodo, double cuota, double pagoInteres, double pagoCapital, double saldo, Date fecha_Vencimiento, double mora, String estado) {
+    public TablaAmortizacion(int codigo, int periodo, double cuota, double pagoInteres, double pagoCapital, double saldo, Credito credito, Date fecha_Vencimiento, double mora, String estado) {
         this.codigo = codigo;
         this.periodo = periodo;
         this.cuota = cuota;
         this.pagoInteres = pagoInteres;
         this.pagoCapital = pagoCapital;
         this.saldo = saldo;
+        this.credito = credito;
         Fecha_Vencimiento = fecha_Vencimiento;
         this.mora = mora;
         this.estado = estado;
@@ -101,6 +103,14 @@ public class TablaAmortizacion {
 
     public boolean crear(TablaAmortizacion tabla){
         return false;
+    }
+
+    public Credito getCredito() {
+        return credito;
+    }
+
+    public void setCredito(Credito credito) {
+        this.credito = credito;
     }
 
     public double calcularInteres(){
