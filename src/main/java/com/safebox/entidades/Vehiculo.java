@@ -1,16 +1,21 @@
 package com.safebox.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Entity
 public class Vehiculo extends Garantia implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    @Column(name = "PLACA", nullable = false, length = 7)
     private String placa;
+    @Column(name = "TIPO", nullable = false, length = 100)
     private String tipo;
+    @Column(name = "MODELO", nullable = false, length = 100)
     private String modelo;
+    @Column(name = "SOAT", nullable = false, length = 25)
     private String soat;
+    @Column(name = "OBSERVACIONES", nullable = false, length = 250)
     private String observacion;
 
     public Vehiculo() {

@@ -2,7 +2,7 @@ package com.safebox.entidades;
 
 import java.util.List;
 
-public class Crédito {
+public class Credito {
     protected int icodigo;
     protected Socio socio;
     protected int plazoMeses;
@@ -13,7 +13,7 @@ public class Crédito {
     protected String parametroEvaluacion;
     public List<Garantia> requisitoList;
 
-    public Crédito(int icodigo, Socio socio, int plazoMeses, String frecuenciaPago, LineaCredito lineacredito, String estado, String sistemaAmortizacion, String parametroEvaluacion, List<Garantia> requisitoList) {
+    public Credito(int icodigo, Socio socio, int plazoMeses, String frecuenciaPago, LineaCredito lineacredito, String estado, String sistemaAmortizacion, String parametroEvaluacion, List<Garantia> requisitoList) {
         this.icodigo = icodigo;
         this.socio = socio;
         this.plazoMeses = plazoMeses;

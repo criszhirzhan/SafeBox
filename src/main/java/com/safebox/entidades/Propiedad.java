@@ -1,11 +1,21 @@
 package com.safebox.entidades;
 
-public class Propiedad extends Garantia{
-private String tipo;
-private double valor;
-private String descripcion;
-private  boolean escritura;
-private  String observacion;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+public class Propiedad extends Garantia implements Serializable {
+
+    @Column(name = "PLACA", nullable = false, length = 7)
+    private String tipo;
+    @Column(name = "VALOR", nullable = false, scale = 2)
+    private double valor;
+    @Column(name = "DESCRIPCION", nullable = false, length = 250)
+    private String descripcion;
+    private  boolean escritura;
+    @Column(name = "OBSERVACION", nullable = false, length = 250)
+    private  String observacion;
 
     public Propiedad() {
 

@@ -1,9 +1,15 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class Caja {
+@Entity
+public class Caja implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numeroCaja;
+    @Column(name = "MONTODINERO", nullable = false, scale = 2)
     private double montoDinero;
     private List<Transaccion> transacciones;
 

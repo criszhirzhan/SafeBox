@@ -1,16 +1,29 @@
 package com.safebox.entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.List;
 
-public class Garante extends Garantia{
+@Entity
+public class Garante extends Garantia implements Serializable {
+    @Column(name = "CEDULA", nullable = false, length = 10)
     private String cedula;
+    @Column(name = "NOMBRE", nullable = false, length = 250)
     private String nombre;
+    @Column(name = "APELLIDO", nullable = false, length = 250)
     private String apellido;
+    @Column(name = "TELEFONO", nullable = false, length = 9)
     private String telefono;
+    @Column(name = "CELULAR", nullable = false, length = 10)
     private String celular;
+    @Column(name = "CORREO", nullable = false, length = 250)
     private String correo;
+    @Column(name = "PATHCOPIACEDULA", nullable = false, length = 250)
     private String pathCopiaCedula;
+    @Column(name = "PATHSERVICIOBASICO", nullable = false, length = 250)
     private String pathServicioBasico;
+    @Column(name = "CIUDAD", nullable = false, length = 100)
     private String Ciudad;
     private List<Referencia> referencias;
 

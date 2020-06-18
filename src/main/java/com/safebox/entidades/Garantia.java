@@ -1,18 +1,19 @@
 package com.safebox.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Garantia implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Garantia  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+    @ManyToOne
+    @JoinColumn
     private Credito credito;
+
 
     public Garantia() {
 
