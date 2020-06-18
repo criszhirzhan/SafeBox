@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.util.List;
 
-public class AhorroProgramado {
+public class AhorroProgramado extends CuentaAhorro {
     private int codigo;
     private int duracionCorreo;
     private Date fechaInicioContrato;

@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class AhorroVista {
+public class AhorroVista extends CuentaAhorro {
     private int codigo;
 
     public AhorroVista(){
