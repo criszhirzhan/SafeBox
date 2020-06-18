@@ -1,11 +1,11 @@
 package com.safebox.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Table(name = "garante")
 public class Garante extends Garantia implements Serializable {
     @Column(name = "CEDULA", nullable = false, length = 10)
     private String cedula;
@@ -25,6 +25,8 @@ public class Garante extends Garantia implements Serializable {
     private String pathServicioBasico;
     @Column(name = "CIUDAD", nullable = false, length = 100)
     private String Ciudad;
+
+
     private List<Referencia> referencias;
 
     public Garante() {

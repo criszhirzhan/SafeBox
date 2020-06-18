@@ -1,12 +1,24 @@
 package com.safebox.entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
-public class Empleado extends Persona {
+@Entity
+@Table(name = "empleado")
+public class Empleado extends Persona implements Serializable {
 
-private Rol rol;
-private String nick;
-private String contrasena;
+
+    @Column(name = "NICKNAME", nullable = false, length = 40)
+    private String nick;
+
+    @Column(name = "CONTRASENA", nullable = false, length = 40)
+    private String contrasena;
+
+
+    private Rol rol;
 
     public Empleado(Rol rol, String nick, String contrasena) {
         this.rol = rol;

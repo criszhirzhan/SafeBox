@@ -1,19 +1,35 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class Socio extends Persona {
+@Entity
+@Table(name = "socio")
+public class Socio extends Persona implements Serializable {
 
+    @Column(name = "PATCH_CEDULA", nullable = false, length = 40)
     private String pathCopiaCedula;
+
+    @Column(name = "PATCH_SERV_BASICO", nullable = false, length = 40)
     private String pathServicioBasico;
+
+    @Column(name = "CIUDAD", nullable = false, length = 15)
     private String ciudad;
+
+
+
     private List<Referencia> referencias;
 
+    public Socio(){
 
-    public Socio(String pathCopiaCedula, String pathServicioBasico, String ciudad, List<Referencia> referencias) {
+    }
+
+    public Socio(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad, String pathCopiaCedula, String pathServicioBasico, String ciudad1, List<Referencia> referencias) {
+        super(identificacion, nombres, apellidos, telefono, celular, direccion, correo, ciudad);
         this.pathCopiaCedula = pathCopiaCedula;
         this.pathServicioBasico = pathServicioBasico;
-        this.ciudad = ciudad;
+        this.ciudad = ciudad1;
         this.referencias = referencias;
     }
 
@@ -33,7 +49,7 @@ public class Socio extends Persona {
         this.pathServicioBasico = pathServicioBasico;
     }
 
-    @Override
+
     public String getCiudad() {
         return ciudad;
     }

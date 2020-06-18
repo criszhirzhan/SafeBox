@@ -1,16 +1,25 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Ref;
 import java.util.List;
 
-public class Referencia {
+@Entity
+@Table(name = "referencia")
+public class Referencia implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
-    private Socio socio;
+
+    @Column(name = "PATH", nullable = false, length = 40)
     private String path;
 
-    public Referencia(int codigo, Socio socio, String path) {
+    public  Referencia(){
+    }
+
+    public Referencia(int codigo, String path) {
         this.codigo = codigo;
-        this.socio = socio;
         this.path = path;
     }
 
@@ -22,14 +31,6 @@ public class Referencia {
         this.codigo = codigo;
     }
 
-    public Socio getSocio() {
-        return socio;
-    }
-
-    public void setSocio(Socio socio) {
-        this.socio = socio;
-    }
-
     public String getPath() {
         return path;
     }
@@ -37,7 +38,6 @@ public class Referencia {
     public void setPath(String path) {
         this.path = path;
     }
-
 
     public boolean crear(Referencia referencia){return false;}
     public boolean editar(Referencia referencia){return false;}

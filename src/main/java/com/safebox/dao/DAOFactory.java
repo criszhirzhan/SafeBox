@@ -1,5 +1,6 @@
 package com.safebox.dao;
 
+import com.safebox.entidades.Socio;
 import com.safebox.jpa.JPADAOFactory;
 
 public abstract class DAOFactory {
@@ -8,5 +9,11 @@ public abstract class DAOFactory {
     public static DAOFactory getDAOFactory() {
         return factory;
     }
+
+    public abstract CreditoOnlineDAO getCreditoOnlineDAO();
+    public abstract EmpleadoDAO getEmpleadoDAO();
+    public abstract ReferenciaDAO getReferenciaDAO();
+    public abstract RolDAO getRolDAO();
+    public abstract SocioDAO getSocioDAO();
 
 }

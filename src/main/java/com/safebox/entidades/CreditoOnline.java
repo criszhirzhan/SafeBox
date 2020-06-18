@@ -1,21 +1,50 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-public class CreditoOnline extends Persona {
+@Entity
+
+public class CreditoOnline extends Persona implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+
+    @Column(name = "ESSOCIO", nullable = false, length = 20)
     private String esSocio;
+
+    @Column(name = "TIPOCREDITO", nullable = false, length = 20)
     private String tipoCredito;
+
+    @Column(name = "DEST_FONDOS", nullable = false, length = 20)
     private String destinodeFondos;
+
+    @Column(name = "FECHA_NAC", nullable = false, length = 10)
     private String fechaNacimiento;
+
+    @Column(name = "ACTV_LABORAL", nullable = false, length = 30)
     private String actividadLaboral;
+
+    @Column(name = "NOMBRE_NEGOCIO", nullable = false, length = 30)
     private String nombreNegocio;
+
+    @Column(name = "DIRECC_NEGOCIO", nullable = false, length = 30)
     private String direccionNegocio;
+
+    @Column(name = "TIEM_FUNC_NEGOCIO", nullable = false, length = 10)
     private int tiempoFuncionamientoNegocio;
+
+    @Column(name = "INGRESOS", nullable = false, length = 10)
     private double ingresos;
 
+    public CreditoOnline(){
 
-    public CreditoOnline(int codigo, String esSocio, String tipoCredito, String destinodeFondos, String fechaNacimiento, String actividadLaboral, String nombreNegocio, String direccionNegocio, int tiempoFuncionamientoNegocio, double ingresos) {
+    }
+
+    public CreditoOnline(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad, int codigo, String esSocio, String tipoCredito, String destinodeFondos, String fechaNacimiento, String actividadLaboral, String nombreNegocio, String direccionNegocio, int tiempoFuncionamientoNegocio, double ingresos) {
+        super(identificacion, nombres, apellidos, telefono, celular, direccion, correo, ciudad);
         this.codigo = codigo;
         this.esSocio = esSocio;
         this.tipoCredito = tipoCredito;
@@ -27,6 +56,7 @@ public class CreditoOnline extends Persona {
         this.tiempoFuncionamientoNegocio = tiempoFuncionamientoNegocio;
         this.ingresos = ingresos;
     }
+
 
     public int getCodigo() {
         return codigo;
