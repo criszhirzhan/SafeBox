@@ -1,37 +1,40 @@
+package com.safebox.entidades;
+
+import com.safebox.entidades.CuentaAhorro;
+
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Objects;
+@Entity
 public class AhorroProgramado extends CuentaAhorro {
-    private int codigo;
-    private int duracionCorreo;
+    private int duracionContrato;
+    @Temporal(TemporalType.DATE)
     private Date fechaInicioContrato;
+    @Temporal(TemporalType.DATE)
     private Date fechaFinalizacionContrato;
 
-    public AhorroProgramado(){
+    public AhorroProgramado() {
+        super();
 
     }
-
-    public AhorroProgramado(int codigo, int duracionCorreo, Date fechaInicioContrato, Date fechaFinalizacionContrato) {
-        this.codigo = codigo;
-        this.duracionCorreo = duracionCorreo;
+    public AhorroProgramado(int codigo, Socio socio, Date fechaApertura, double interes, String estado, double saldo,
+                            String nick, double retiroMaximo, Date fechaUltimoIngreso, int duracionContrato,
+                            Date fechaInicioContrato, Date fechaFinalizacionContrato) {
+        super(codigo, socio, fechaApertura, interes, estado, saldo, nick, retiroMaximo, fechaUltimoIngreso);
+        this.duracionContrato = duracionContrato;
         this.fechaInicioContrato = fechaInicioContrato;
         this.fechaFinalizacionContrato = fechaFinalizacionContrato;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getDuracionContrato() {
+        return duracionContrato;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public int getDuracionCorreo() {
-        return duracionCorreo;
-    }
-
-    public void setDuracionCorreo(int duracionCorreo) {
-        this.duracionCorreo = duracionCorreo;
+    public void setDuracionContrato(int duracionContrato) {
+        this.duracionContrato = duracionContrato;
     }
 
     public Date getFechaInicioContrato() {
@@ -50,74 +53,19 @@ public class AhorroProgramado extends CuentaAhorro {
         this.fechaFinalizacionContrato = fechaFinalizacionContrato;
     }
 
-    //-----------------------------------------------------------------
-    public Date calcularFinContrato(Date fechaInicio, int duracion){
-
-        return null;
-    }
-
-    public boolean crear(AhorroProgramado ahorroCuneta){
-
-        return false;
-    }
-
-
-    public boolean editar(AhorroProgramado ahorroCuneta){
-
-        return false;
-    }
-
-
-    public boolean eliminar(AhorroProgramado ahorroCuneta){
-
-        return false;
-    }
-
-    public AhorroProgramado verInfo(String identificacion){
-
-        return null;
-    }
-
-    public List<AhorroProgramado> listar(){
-
-        return null;
-    }
-
-    public String generarNick(Socio socio){
-
-        return null;
-    }
-
-    public String generarContrasena(){
-
-        return null;
-    }
-
-    public void calcularInteresDiario(double intereces,double saldo){
-
-
-    }
-
-    public void VerificarRetiro(){
-
-    }
-
-    public void activar(AhorroProgramado ahorroCuenta){
-
-    }
-
-    public AhorroProgramado verEstadoCuenta(AhorroProgramado ahorroCuenta){
-
-        return null;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AhorroProgramado)) return false;
+        if (!super.equals(o)) return false;
+        AhorroProgramado that = (AhorroProgramado) o;
+        return duracionContrato == that.duracionContrato &&
+                fechaInicioContrato.equals(that.fechaInicioContrato) &&
+                fechaFinalizacionContrato.equals(that.fechaFinalizacionContrato);
     }
 
     @Override
-    public String toString() {
-        return "AhorroProgramado{" +
-                "codigo=" + codigo +
-                ", duracionCorreo=" + duracionCorreo +
-                ", fechaInicioContrato=" + fechaInicioContrato +
-                ", fechaFinalizacionContrato=" + fechaFinalizacionContrato +
-                '}';
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), duracionContrato, fechaInicioContrato, fechaFinalizacionContrato);
     }
 }

@@ -11,6 +11,7 @@ public class Caja implements Serializable {
     private int numeroCaja;
     @Column(name = "MONTODINERO", nullable = false, scale = 2)
     private double montoDinero;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="caja")
     private List<Transaccion> transacciones;
 
     public Caja() {

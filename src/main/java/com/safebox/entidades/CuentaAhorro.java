@@ -1,41 +1,59 @@
+package com.safebox.entidades;
+
+import com.safebox.entidades.Socio;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
-public class CuentaAhorro {
-    private int codigoCuneta;
+import java.util.Objects;
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class CuentaAhorro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo;
+    @OneToOne
     private Socio socio;
+    @Temporal(TemporalType.DATE)
     private Date fechaApertura;
+    @Column(name = "INTERES", nullable = false, scale = 2)
     private double interes;
-    private boolean estado;
+    @Column(name = "ESTADO", nullable = false, length = 11)
+    private String estado;
+    @Column(name = "SALDO", nullable = false, scale = 2)
     private double saldo;
-    private String estado2;
+    @Column(name = "NICK", nullable = false, length = 25)
     private String nick;
+    @Column(name = "RETIROMAXIMO", nullable = false, scale = 2)
     private double retiroMaximo;
-    private Date FechaUltimoIngreso;
+    @Temporal(TemporalType.DATE)
+    private Date fechaUltimoIngreso;
 
     private CuentaAhorro(){
-
+        super();
     }
 
-    public CuentaAhorro(int codigoCuneta, Socio socio, Date fechaApertura, double interes, boolean estado, double saldo, String estado2, String nick, double retiroMaximo, Date fechaUltimoIngreso) {
-        this.codigoCuneta = codigoCuneta;
+    public CuentaAhorro(int codigo, Socio socio, Date fechaApertura, double interes, String estado, double saldo,
+                        String nick, double retiroMaximo, Date fechaUltimoIngreso) {
+        this.codigo = codigo;
         this.socio = socio;
         this.fechaApertura = fechaApertura;
         this.interes = interes;
         this.estado = estado;
         this.saldo = saldo;
-        this.estado2 = estado2;
         this.nick = nick;
         this.retiroMaximo = retiroMaximo;
-        FechaUltimoIngreso = fechaUltimoIngreso;
+        this.fechaUltimoIngreso = fechaUltimoIngreso;
     }
 
-    public int getCodigoCuneta() {
-        return codigoCuneta;
+
+
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoCuneta(int codigoCuneta) {
-        this.codigoCuneta = codigoCuneta;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Socio getSocio() {
@@ -62,11 +80,11 @@ public class CuentaAhorro {
         this.interes = interes;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -76,14 +94,6 @@ public class CuentaAhorro {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
-    }
-
-    public String getEstado2() {
-        return estado2;
-    }
-
-    public void setEstado2(String estado2) {
-        this.estado2 = estado2;
     }
 
     public String getNick() {
@@ -103,103 +113,31 @@ public class CuentaAhorro {
     }
 
     public Date getFechaUltimoIngreso() {
-        return FechaUltimoIngreso;
+        return fechaUltimoIngreso;
     }
 
     public void setFechaUltimoIngreso(Date fechaUltimoIngreso) {
-        FechaUltimoIngreso = fechaUltimoIngreso;
+        this.fechaUltimoIngreso = fechaUltimoIngreso;
     }
-
-    //------------------------------------------
-
-    public boolean crear(CuentaAhorro ahorroCuneta){
-
-        return false;
-    }
-
-
-    public boolean editar(CuentaAhorro ahorroCuneta){
-
-        return false;
-    }
-
-
-    public boolean eliminar(CuentaAhorro ahorroCuneta){
-
-        return false;
-    }
-
-    public boolean activar(CuentaAhorro ahorroCuneta){
-
-        return false;
-    }
-
-
-    public CuentaAhorro verInfo(String identificacion){
-
-        return null;
-    }
-
-    public List<CuentaAhorro> listar(){
-
-        return null;
-    }
-
-    public String generarNick(Socio socio){
-
-        return null;
-    }
-
-    public String generarContrasena(){
-
-        return null;
-    }
-
-    public void calcularInteresDiario(double intereces,double saldo){
-
-
-    }
-
-    public CuentaAhorro verEstadoCuenta(CuentaAhorro  cuentaAhorro){
-
-        return cuentaAhorro;
-    }
-
-    public boolean autenticacionCuenta(String nick,String contrasenia){
-        return false;
-    }
-
-    public boolean depositar(double monto,CuentaAhorro cuentaAhorro ){
-
-        return false;
-    }
-
-    public boolean retiro(double monto,CuentaAhorro cuentaAhorro){
-
-        return false;
-    }
-
-    public void buscarPorNombre(String apellidos,String nombres){
-
-
-    }
-
-
 
     @Override
-    public String toString() {
-        return "CuentaAhorro{" +
-                "codigoCuneta=" + codigoCuneta +
-                ", socio=" + socio +
-                ", fechaApertura=" + fechaApertura +
-                ", interes=" + interes +
-                ", estado=" + estado +
-                ", saldo=" + saldo +
-                ", estado2='" + estado2 + '\'' +
-                ", nick='" + nick + '\'' +
-                ", retiroMaximo=" + retiroMaximo +
-                ", FechaUltimoIngreso=" + FechaUltimoIngreso +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CuentaAhorro)) return false;
+        CuentaAhorro that = (CuentaAhorro) o;
+        return codigo == that.codigo &&
+                Double.compare(that.interes, interes) == 0 &&
+                Double.compare(that.saldo, saldo) == 0 &&
+                Double.compare(that.retiroMaximo, retiroMaximo) == 0 &&
+                Objects.equals(socio, that.socio) &&
+                Objects.equals(fechaApertura, that.fechaApertura) &&
+                Objects.equals(estado, that.estado) &&
+                Objects.equals(nick, that.nick) &&
+                Objects.equals(fechaUltimoIngreso, that.fechaUltimoIngreso);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo, socio, fechaApertura, interes, estado, saldo, nick, retiroMaximo, fechaUltimoIngreso);
+    }
 }

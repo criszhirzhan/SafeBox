@@ -1,25 +1,23 @@
+package com.safebox.entidades;
+
+import com.safebox.entidades.Transaccion;
+
+import javax.persistence.Entity;
 import java.util.Date;
 import java.util.List;
-
-public class Aportacion  extends  Transaccion{
-    private int codigo;
+import java.util.Objects;
+@Entity
+public class Aportacion  extends Transaccion {
     private int numeroCuota;
 
     public Aportacion(){
 
     }
 
-    public Aportacion(int codigo, int numeroCuota) {
-        this.codigo = codigo;
+    public Aportacion(int codigo, Caja caja, Date fecha, double monto, CuentaAhorro cuenta, String observacion,
+                      int numeroCuota) {
+        super(codigo, caja, fecha, monto, cuenta, observacion);
         this.numeroCuota = numeroCuota;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public int getNumeroCuota() {
@@ -30,40 +28,17 @@ public class Aportacion  extends  Transaccion{
         this.numeroCuota = numeroCuota;
     }
 
-    //---------------------------------------------------------
-    public void realizarAportacion(Aportacion aportacion){
-
-    }
-
-    public void registrarTransaccionLibre(Aportacion aportacion){
-
-    }
-
-    public List<Aportacion> listar(){
-
-        return null;
-    }
-
-    public List<Aportacion> listarPorFecha(Date fecha){
-
-        return null;
-    }
-
-    public List<Aportacion> listarPorintervaloFecha(Date fechaInicial,Date fechaFinal){
-
-        return null;
-    }
-
-    public CuentaAhorro generarResumendeAportaciones(CuentaAhorro cuenta){
-
-        return null;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Aportacion)) return false;
+        if (!super.equals(o)) return false;
+        Aportacion that = (Aportacion) o;
+        return numeroCuota == that.numeroCuota;
     }
 
     @Override
-    public String toString() {
-        return "Aportacion{" +
-                "codigo=" + codigo +
-                ", numeroCuota=" + numeroCuota +
-                '}';
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numeroCuota);
     }
 }
