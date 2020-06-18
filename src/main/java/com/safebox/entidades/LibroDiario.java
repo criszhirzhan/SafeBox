@@ -1,14 +1,23 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
 public class LibroDiario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+    @ManyToOne
+    @JoinColumn
     private Caja caja;
+    @Temporal(TemporalType.DATE)
     private Date fecaha;
     private String detalle;
+    @Column(name = "PARCIAL", nullable = false, scale = 2)
     private double parcial;
+    @Column(name = "DEBE", nullable = false, scale = 2)
     private double debe;
+    @Column(name = "HABER", nullable = false, scale = 2)
     private double haber;
 
     public LibroDiario() {

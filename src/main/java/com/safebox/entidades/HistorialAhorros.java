@@ -1,21 +1,35 @@
+package com.safebox.entidades;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Objects;
+@Entity
 public class HistorialAhorros {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+    @Temporal(TemporalType.DATE)
     private Date fecha;
+    @JoinColumn
+    @ManyToOne
     private CuentaAhorro cuenta;
+    @Column(name = "DETALLE", nullable = false, length = 250)
     private String detalle;
+    @Column(name = "RETIRO", nullable = false, scale = 2)
     private double retiro;
+    @Column(name = "DEPOSITO", nullable = false, scale = 2)
     private double deposito;
+    @Column(name = "SALDO", nullable = false, scale = 2)
     private double saldo;
-    private List<Transacciones> transacciones;
+
+    private List<Transaccion> transacciones;
 
     public HistorialAhorros(){
 
     }
 
-    public HistorialAhorros(int codigo, Date fecha, CuentaAhorro cuenta, String detalle, double retiro, double deposito, double saldo, List<Transacciones> transacciones) {
+    public HistorialAhorros(int codigo, Date fecha, CuentaAhorro cuenta, String detalle, double retiro, double deposito, double saldo) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.cuenta = cuenta;
@@ -23,7 +37,6 @@ public class HistorialAhorros {
         this.retiro = retiro;
         this.deposito = deposito;
         this.saldo = saldo;
-        this.transacciones = transacciones;
     }
 
     public int getCodigo() {
@@ -82,40 +95,31 @@ public class HistorialAhorros {
         this.saldo = saldo;
     }
 
-    public List<Transacciones> getTransacciones() {
+    public List<Transaccion> getTransacciones() {
         return transacciones;
     }
 
-    public void setTransacciones(List<Transacciones> transacciones) {
+    public void setTransacciones(List<Transaccion> transacciones) {
         this.transacciones = transacciones;
     }
 
-
-    //-------------------------------
-    public boolean crear(HistorialAhorros historial){
-        return false;
-    }
-
-    public List<HistorialAhorros> listar(CuentaAhorro cuenta){
-        return null;
-    }
-
-    public double calcularInteres(Cuenta cuenta){
-
-        return 0.00;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HistorialAhorros)) return false;
+        HistorialAhorros that = (HistorialAhorros) o;
+        return codigo == that.codigo &&
+                Double.compare(that.retiro, retiro) == 0 &&
+                Double.compare(that.deposito, deposito) == 0 &&
+                Double.compare(that.saldo, saldo) == 0 &&
+                fecha.equals(that.fecha) &&
+                cuenta.equals(that.cuenta) &&
+                detalle.equals(that.detalle) &&
+                transacciones.equals(that.transacciones);
     }
 
     @Override
-    public String toString() {
-        return "HistorialAhorros{" +
-                "codigo=" + codigo +
-                ", fecha=" + fecha +
-                ", cuenta=" + cuenta +
-                ", detalle='" + detalle + '\'' +
-                ", retiro=" + retiro +
-                ", deposito=" + deposito +
-                ", saldo=" + saldo +
-                ", transacciones=" + transacciones +
-                '}';
+    public int hashCode() {
+        return Objects.hash(codigo, fecha, cuenta, detalle, retiro, deposito, saldo, transacciones);
     }
 }

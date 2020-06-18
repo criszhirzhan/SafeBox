@@ -1,22 +1,38 @@
-import java.util.Date;
+package com.safebox.entidades;
 
-public class Transaccion {
-    private int codigo;;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.Objects;
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Transaccion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo;
+    @ManyToOne
+    @JoinColumn
     private Caja caja;
+    @Temporal(TemporalType.DATE)
     private Date fecha;
+    @Column(name = "MONTO", nullable = false, scale = 2)
+    private double monto;
+    @ManyToOne
+    @JoinColumn
     private CuentaAhorro cuenta;
-    private String observaciones;
+    @Column(name = "OBSERVACION", nullable = false, length = 250)
+    private String observacion;
 
     public Transaccion(){
 
     }
 
-    public Transaccion(int codigo, Caja caja, Date fecha, CuentaAhorro cuenta, String observaciones) {
+    public Transaccion(int codigo, Caja caja, Date fecha, double monto, CuentaAhorro cuenta, String observacion) {
         this.codigo = codigo;
         this.caja = caja;
         this.fecha = fecha;
+        this.monto = monto;
         this.cuenta = cuenta;
-        this.observaciones = observaciones;
+        this.observacion = observacion;
     }
 
     public int getCodigo() {
@@ -43,6 +59,14 @@ public class Transaccion {
         this.fecha = fecha;
     }
 
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
     public CuentaAhorro getCuenta() {
         return cuenta;
     }
@@ -51,26 +75,29 @@ public class Transaccion {
         this.cuenta = cuenta;
     }
 
-    public String getObservaciones() {
-        return observaciones;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public void registrarTransaccionLibro(Transaccion transaccion){
-
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
     @Override
-    public String toString() {
-        return "Transaccion{" +
-                "codigo=" + codigo +
-                ", caja=" + caja +
-                ", fecha=" + fecha +
-                ", cuenta=" + cuenta +
-                ", observaciones='" + observaciones + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaccion)) return false;
+        Transaccion that = (Transaccion) o;
+        return codigo == that.codigo &&
+                Double.compare(that.monto, monto) == 0 &&
+                caja.equals(that.caja) &&
+                fecha.equals(that.fecha) &&
+                cuenta.equals(that.cuenta) &&
+                observacion.equals(that.observacion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo, caja, fecha, monto, cuenta, observacion);
     }
 }

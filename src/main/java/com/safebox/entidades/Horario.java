@@ -1,12 +1,21 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
 public class Horario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+    @ManyToOne
+    @JoinColumn
     private Empleado empleado;
+    @ManyToOne
+    @JoinColumn
     private Caja caja;
+    @Temporal(TemporalType.DATE)
     private Date horaEntrada;
+    @Temporal(TemporalType.DATE)
     private Date horaSalida;
 
     public Horario() {
