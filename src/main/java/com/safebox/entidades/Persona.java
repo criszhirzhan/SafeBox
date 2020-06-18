@@ -3,7 +3,7 @@ package com.safebox.entidades;
 
 import java.util.List;
 
-public class Persona {
+public abstract class Persona {
 
     protected String identificacion;
     protected  String nombres;
