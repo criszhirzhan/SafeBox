@@ -18,6 +18,39 @@ public class AhorroProgramado extends CuentaAhorro {
         this.fechaFinalizacionContrato = fechaFinalizacionContrato;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getDuracionCorreo() {
+        return duracionCorreo;
+    }
+
+    public void setDuracionCorreo(int duracionCorreo) {
+        this.duracionCorreo = duracionCorreo;
+    }
+
+    public Date getFechaInicioContrato() {
+        return fechaInicioContrato;
+    }
+
+    public void setFechaInicioContrato(Date fechaInicioContrato) {
+        this.fechaInicioContrato = fechaInicioContrato;
+    }
+
+    public Date getFechaFinalizacionContrato() {
+        return fechaFinalizacionContrato;
+    }
+
+    public void setFechaFinalizacionContrato(Date fechaFinalizacionContrato) {
+        this.fechaFinalizacionContrato = fechaFinalizacionContrato;
+    }
+
+    //-----------------------------------------------------------------
     public Date calcularFinContrato(Date fechaInicio, int duracion){
 
         return null;
@@ -45,7 +78,7 @@ public class AhorroProgramado extends CuentaAhorro {
         return null;
     }
 
-    public List listar(){
+    public List<AhorroProgramado> listar(){
 
         return null;
     }

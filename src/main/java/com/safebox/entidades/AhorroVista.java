@@ -37,7 +37,7 @@ public class AhorroVista extends CuentaAhorro {
         return null;
     }
 
-    public List listar(List AhorroProgramado){
+    public List<AhorroProgramado> listar(List AhorroProgramado){
     return null;
     }
 
