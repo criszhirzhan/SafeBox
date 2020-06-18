@@ -4,13 +4,38 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
 
-    <persistence-unit name="NewPersistenceUnit">
+    <persistence-unit name="Safebox">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>com.safebox.entidades.AhorroProgramado</class>
+        <class>com.safebox.entidades.AhorroVista</class>
+        <class>com.safebox.entidades.Aportacion</class>
+        <class>com.safebox.entidades.Caja</class>
+        <class>com.safebox.entidades.Credito</class>
+        <class>com.safebox.entidades.CreditoOnline</class>
+        <class>com.safebox.entidades.Deposito</class>
+        <class>com.safebox.entidades.Empleado</class>
+        <class>com.safebox.entidades.Garante</class>
+        <class>com.safebox.entidades.HistorialAhorros</class>
+        <class>com.safebox.entidades.Horario</class>
+        <class>com.safebox.entidades.LibroDiario</class>
+        <class>com.safebox.entidades.LineaCredito</class>
+        <class>com.safebox.entidades.PagoCredito</class>
+        <class>com.safebox.entidades.Propiedad</class>
+        <class>com.safebox.entidades.Referencia</class>
+        <class>com.safebox.entidades.Retiro</class>
+        <class>com.safebox.entidades.Rol</class>
+        <class>com.safebox.entidades.Socio</class>
+        <class>com.safebox.entidades.TablaAmortizacion</class>
+        <class>com.safebox.entidades.Vehiculo</class>
+
+
         <properties>
-            <property name="eclipselink.jdbc.url" value=""/>
-            <property name="eclipselink.jdbc.driver" value=""/>
-            <property name="eclipselink.jdbc.user" value=""/>
-            <property name="eclipselink.jdbc.password" value=""/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <property name="eclipselink.jdbc.url" value="safeboxups.mysql.database.azure.com"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.user" value="manager@safeboxups"/>
+            <property name="eclipselink.jdbc.password" value="KXNKgohr2074"/>
         </properties>
     </persistence-unit>
 </persistence>
