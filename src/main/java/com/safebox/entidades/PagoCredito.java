@@ -1,12 +1,24 @@
 package com.safebox.entidades;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
 public class PagoCredito {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
+    @Column(name = "MONTO", nullable = false, scale = 2)
     protected double monto;
+    @ManyToOne
+    @JoinColumn
     protected TablaAmortizacion tablaAmortizacion;
+    @Temporal(TemporalType.DATE)
     protected Date fechaPago;
 
     public PagoCredito(int codigo, double monto, TablaAmortizacion tablaAmortizacion, Date fechaPago) {

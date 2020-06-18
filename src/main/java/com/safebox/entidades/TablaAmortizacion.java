@@ -1,19 +1,33 @@
 package com.safebox.entidades;
 
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class TablaAmortizacion {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
+    @Column(name = "PERIODO", nullable = false, length = 5)
     protected int periodo;
+    @Column(name = "CUOTA", nullable = false, scale = 2)
     protected double cuota;
+    @Column(name = "PAGOINTERES", nullable = false, scale = 2)
     protected double pagoInteres;
+    @Column(name = "PAGOCAPITAL", nullable = false, scale = 2)
     protected double pagoCapital;
+    @Column(name = "SALDO", nullable = false, scale = 2)
     protected double saldo;
+    @ManyToOne
+    @JoinColumn
     protected Credito credito;
+    @Temporal(TemporalType.DATE)
     protected Date Fecha_Vencimiento;
+    @Column(name = "MORA", nullable = false, scale = 2)
     protected double mora;
+    @Column(name = "ESTADO", nullable = false, length = 25)
     protected String estado;
 
     public TablaAmortizacion(int codigo, int periodo, double cuota, double pagoInteres, double pagoCapital, double saldo, Credito credito, Date fecha_Vencimiento, double mora, String estado) {

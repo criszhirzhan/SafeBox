@@ -1,16 +1,30 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
-
+@Entity
 public class Credito {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int icodigo;
+    @ManyToOne
+    @JoinColumn
     protected Socio socio;
+    @Column(name = "PLAZOMESES", nullable = false, length = 2)
     protected int plazoMeses;
+    @Column(name = "FRECUENCIAPAGO", nullable = false, length = 5)
     protected String frecuenciaPago;
+    @ManyToOne
+    @JoinColumn
     protected LineaCredito lineacredito;
+    @Column(name = "ESTADO", nullable = false, length = 25)
     protected String estado;
+    @Column(name = "SISTEMAAMORTIZACION", nullable = false, length = 25)
     protected String sistemaAmortizacion;
+    @Column(name = "PARAMETROEVALUACION", nullable = false, length = 25)
     protected String parametroEvaluacion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="credito")
     public List<Garantia> requisitoList;
 
     public Credito(int icodigo, Socio socio, int plazoMeses, String frecuenciaPago, LineaCredito lineacredito, String estado, String sistemaAmortizacion, String parametroEvaluacion, List<Garantia> requisitoList) {

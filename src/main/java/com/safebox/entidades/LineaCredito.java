@@ -1,16 +1,28 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
 public class LineaCredito {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
+    @Column(name = "NOMBRE", nullable = false, length = 25)
     protected String nombre;
+    @Column(name = "DESCRIPCION", nullable = false, length = 250)
     protected String descripcion;
+    @Column(name = "INTERES", nullable = false, scale = 2)
     protected double interes;
+    @Column(name = "MONTOMAXIMO", nullable = false, scale = 2)
     protected double montoMaximo;
+    @Column(name = "PLAZOMAXIMO", nullable = false, length = 25)
     protected int plazoMaximo;
+    @Temporal(TemporalType.DATE)
     protected Date fechaModificacion;
+    @Column(name = "ESTADO", nullable = false, length = 25)
     protected String estado;
 
     public LineaCredito(int codigo, String nombre, String descripcion, double interes, double montoMaximo, int plazoMaximo, Date fechaModificacion, String estado) {
