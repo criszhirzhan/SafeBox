@@ -15,8 +15,8 @@ public interface AhorroProgramadoDAO extends GenericDAO<AhorroProgramado, Intege
     public abstract boolean verificarRetiro(AhorroProgramado ahorroProgramado);
     public abstract boolean modificarEstado(AhorroProgramado ahorroProgramado);
     public abstract boolean autentificacionCuenta(String nick,String contrasena);
-    public abstract boolean realizarDeposito(Double monto,AhorroVista ahorroVista);
-    public abstract boolean realizarRetiro(Double monto,AhorroVista ahorroVista);
+    public abstract boolean realizarDeposito(Double monto,AhorroProgramado ahorroProgramado);
+    public abstract boolean realizarRetiro(Double monto,AhorroProgramado ahorroProgramado);
     public abstract AhorroProgramado buscarPorNombresApellidos(String contex);
 
 }
