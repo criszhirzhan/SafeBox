@@ -1,19 +1,13 @@
-package com.safebox.jpa;
+package com.safebox.dao;
 
-import com.safebox.dao.CreditoDAO;
-import com.safebox.dao.DAOFactory;
-import com.safebox.dao.LineaCreditoDAO;
-import com.safebox.dao.RolDAO;
 import com.safebox.entidades.LineaCredito;
-import com.safebox.entidades.Rol;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
-public class LineaCreditoTest {
+public class LineaCreditoDAOTest {
 
     @Test
     public void create() {
@@ -63,4 +57,7 @@ public class LineaCreditoTest {
         assertEquals(true,lineaCreditoDAO.delete(lineaCredito));
     }
 
+    @Test
+    public void verInformacion() {
+    }
 }

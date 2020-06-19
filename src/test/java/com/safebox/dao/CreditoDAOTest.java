@@ -1,19 +1,41 @@
-package com.safebox.jpa;
+package com.safebox.dao;
 
-import com.safebox.dao.CreditoDAO;
-import com.safebox.dao.DAOFactory;
-import com.safebox.dao.RolDAO;
 import com.safebox.entidades.Credito;
-import com.safebox.entidades.Rol;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
-public class CreditoTest {
+public class CreditoDAOTest {
 
+    @Test
+    public void evaluar() {
+    }
+
+    @Test
+    public void generarContrato() {
+    }
+
+    @Test
+    public void entregarCredito() {
+    }
+
+    @Test
+    public void simularCredito() {
+    }
+
+    @Test
+    public void agregarNuevoParametro() {
+    }
+
+    @Test
+    public void eliminarParametro() {
+    }
+
+    @Test
+    public void listarCreditoPorEstado() {
+    }
     @Test
     public void create() {
         Credito credito =  new Credito();
