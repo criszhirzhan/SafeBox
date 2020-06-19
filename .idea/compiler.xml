@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SafeBox-master" />
         <module name="SafeBox" />
+        <module name="SafeBox-master" />
+        <module name="Repositorio" />
       </profile>
     </annotationProcessing>
   </component>
