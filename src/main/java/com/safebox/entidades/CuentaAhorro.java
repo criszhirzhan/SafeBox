@@ -1,11 +1,9 @@
 package com.safebox.entidades;
 
-import com.safebox.entidades.Socio;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
+
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class CuentaAhorro {

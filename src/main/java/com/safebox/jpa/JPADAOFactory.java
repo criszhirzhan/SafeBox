@@ -1,51 +1,35 @@
 package com.safebox.jpa;
 import com.safebox.dao.*;
 
-public class JPADAOFactory extends DAOFactoy{
+public class JPADAOFactory extends DAOFactory{
 
     @Override
-    public CreditoOnlineDAO getCreditoOnlineDAO() {
-        return null;
+    public JPACreditoOnlineDAO getCreditoOnlineDAO() {
+        return new JPACreditoOnlineDAO();
     }
 
     @Override
     public EmpleadoDAO getEmpleadoDAO() {
-        return null;
+        return new JPAEmpleadoDAO();
     }
 
     @Override
     public ReferenciaDAO getReferenciaDAO() {
-        return null;
+        return new JPAReferenciaDAO();
     }
 
     @Override
     public RolDAO getRolDAO() {
-        return null;
+        return new JPARolDAO();
     }
 
     @Override
     public SocioDAO getSocioDAO() {
-        return null;
-    }
-
-    @Override
-    public CreditoDAO getCreditoDAO() {
-        return null;
-    }
-
-    @Override
-    public PagoCreditoDAO getpagoCreditoDAO() {
-        return null;
+        return new JPASocioDAO();
     }
 
     @Override
     public LineaCreditoDAO getLineaCreditoDAO() {
-        return null;
+        return new JPALineaCreditoDAO();
     }
-
-    @Override
-    public TablaAmortizacionDAO getTablaAmortizacionDAO() {
-        return null;
-    }
-
 }

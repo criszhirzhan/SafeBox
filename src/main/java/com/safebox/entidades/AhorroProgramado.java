@@ -1,13 +1,11 @@
 package com.safebox.entidades;
 
-import com.safebox.entidades.CuentaAhorro;
-
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
+
 @Entity
 public class AhorroProgramado extends CuentaAhorro {
     private int duracionContrato;

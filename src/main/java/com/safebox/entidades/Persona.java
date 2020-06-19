@@ -2,38 +2,47 @@ package com.safebox.entidades;
 
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Persona {
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String identificacion;
-
-    protected  String nombres;
-    protected String apellidos;
+    @Column(nullable = false, length = 250)
+    protected String nombre;
+    @Column(nullable = false, length = 50)
+    protected String apellido;
+    @Temporal(TemporalType.DATE)
+    protected Date fechaNacimiento;
+    @Column( nullable = false, length = 50)
     protected String telefono;
+    @Column(nullable = false, length = 50)
     protected String celular;
+    @Column(nullable = false, length = 100)
     protected String direccion;
+    @Column(nullable = false, length = 50)
     protected String correo;
+    @Column(nullable = false, length = 30)
     protected String ciudad;
 
-    public Persona(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad) {
+    public Persona() {
+
+    }
+
+    public Persona(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono, String celular,
+                   String direccion, String correo, String ciudad) {
         this.identificacion = identificacion;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
         this.celular = celular;
         this.direccion = direccion;
         this.correo = correo;
         this.ciudad = ciudad;
-    }
-
-    public Persona() {
-
     }
 
     public String getIdentificacion() {
@@ -44,20 +53,28 @@ public abstract class Persona {
         this.identificacion = identificacion;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getTelefono() {
@@ -98,32 +115,6 @@ public abstract class Persona {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
-    }
-
-
-    public boolean crear(Persona persona){
-
-        return false;
-    }
-
-    public boolean editar(Persona persona){
-
-        return false;
-    }
-
-    public boolean eliminar(Persona persona){
-
-        return false;
-    }
-
-    public Persona verInformacion(String identificacion){
-
-        return null;
-    }
-
-    public List<Persona> listar(){
-
-        return null;
     }
 
 }

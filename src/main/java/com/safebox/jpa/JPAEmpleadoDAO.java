@@ -5,7 +5,7 @@ import com.safebox.entidades.Empleado;
 
 public class JPAEmpleadoDAO extends JPAGenericDAO<Empleado, String> implements EmpleadoDAO {
 
-    public JPAEmpleadoDAO(Class<Empleado> persistentClass) {
-        super(persistentClass);
+    public JPAEmpleadoDAO() {
+        super(Empleado.class);
     }
 }

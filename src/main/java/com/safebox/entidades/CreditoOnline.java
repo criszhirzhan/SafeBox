@@ -2,54 +2,46 @@ package com.safebox.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 
 public class CreditoOnline extends Persona implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
-
-    @Column(name = "ESSOCIO", nullable = false, length = 20)
-    private String esSocio;
-
-    @Column(name = "TIPOCREDITO", nullable = false, length = 20)
-    private String tipoCredito;
-
-    @Column(name = "DEST_FONDOS", nullable = false, length = 20)
-    private String destinodeFondos;
-
-    @Column(name = "FECHA_NAC", nullable = false, length = 10)
-    private String fechaNacimiento;
-
-    @Column(name = "ACTV_LABORAL", nullable = false, length = 30)
+    @Column( nullable = false, length = 2)
+    private boolean esSocio;
+    @ManyToOne
+    @JoinColumn
+    private LineaCredito lineaCredito;
+    @Column( nullable = false, length = 250)
+    private String destinoDeFondos;
+    @Column(nullable = false, length = 250)
     private String actividadLaboral;
-
-    @Column(name = "NOMBRE_NEGOCIO", nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String nombreNegocio;
-
-    @Column(name = "DIRECC_NEGOCIO", nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String direccionNegocio;
-
-    @Column(name = "TIEM_FUNC_NEGOCIO", nullable = false, length = 10)
     private int tiempoFuncionamientoNegocio;
-
-    @Column(name = "INGRESOS", nullable = false, length = 10)
+    @Column(nullable = false, scale = 2)
     private double ingresos;
 
     public CreditoOnline(){
 
     }
 
-    public CreditoOnline(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad, int codigo, String esSocio, String tipoCredito, String destinodeFondos, String fechaNacimiento, String actividadLaboral, String nombreNegocio, String direccionNegocio, int tiempoFuncionamientoNegocio, double ingresos) {
-        super(identificacion, nombres, apellidos, telefono, celular, direccion, correo, ciudad);
+    public CreditoOnline(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
+                         String celular, String direccion, String correo, String ciudad, int codigo, boolean esSocio,
+                         LineaCredito lineaCredito, String destinoDeFondos, String actividadLaboral, String nombreNegocio,
+                         String direccionNegocio, int tiempoFuncionamientoNegocio, double ingresos) {
+        super(identificacion, nombre, apellido, fechaNacimiento, telefono, celular, direccion, correo, ciudad);
         this.codigo = codigo;
         this.esSocio = esSocio;
-        this.tipoCredito = tipoCredito;
-        this.destinodeFondos = destinodeFondos;
-        this.fechaNacimiento = fechaNacimiento;
+        this.lineaCredito = lineaCredito;
+        this.destinoDeFondos = destinoDeFondos;
         this.actividadLaboral = actividadLaboral;
         this.nombreNegocio = nombreNegocio;
         this.direccionNegocio = direccionNegocio;
@@ -57,6 +49,9 @@ public class CreditoOnline extends Persona implements Serializable {
         this.ingresos = ingresos;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -66,36 +61,28 @@ public class CreditoOnline extends Persona implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getEsSocio() {
+    public boolean isEsSocio() {
         return esSocio;
     }
 
-    public void setEsSocio(String esSocio) {
+    public void setEsSocio(boolean esSocio) {
         this.esSocio = esSocio;
     }
 
-    public String getTipoCredito() {
-        return tipoCredito;
+    public LineaCredito getLineaCredito() {
+        return lineaCredito;
     }
 
-    public void setTipoCredito(String tipoCredito) {
-        this.tipoCredito = tipoCredito;
+    public void setLineaCredito(LineaCredito lineaCredito) {
+        this.lineaCredito = lineaCredito;
     }
 
-    public String getDestinodeFondos() {
-        return destinodeFondos;
+    public String getDestinoDeFondos() {
+        return destinoDeFondos;
     }
 
-    public void setDestinodeFondos(String destinodeFondos) {
-        this.destinodeFondos = destinodeFondos;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setDestinoDeFondos(String destinoDeFondos) {
+        this.destinoDeFondos = destinoDeFondos;
     }
 
     public String getActividadLaboral() {
@@ -136,21 +123,5 @@ public class CreditoOnline extends Persona implements Serializable {
 
     public void setIngresos(double ingresos) {
         this.ingresos = ingresos;
-    }
-
-    ///////////////
-
-    public boolean crear(CreditoOnline creditoOnline){
-        return false;
-    }
-
-    public List<CreditoOnline> listarCreditosOnline(){
-
-        return null;
-    }
-
-    public boolean modificarEstado(String estado){
-
-        return false;
     }
 }

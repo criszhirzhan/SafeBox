@@ -2,35 +2,28 @@ package com.safebox.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "socio")
 public class Socio extends Persona implements Serializable {
-
-    @Column(name = "PATCH_CEDULA", nullable = false, length = 40)
+    private static final long serialVersionUID = 1L;
+    @Column( nullable = false, length = 100)
     private String pathCopiaCedula;
-
-    @Column(name = "PATCH_SERV_BASICO", nullable = false, length = 40)
+    @Column(nullable = false, length = 100)
     private String pathServicioBasico;
-
-    @Column(name = "CIUDAD", nullable = false, length = 15)
-    private String ciudad;
-
-
-
+    @OneToMany( mappedBy="socio",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Referencia> referencias;
 
     public Socio(){
 
     }
 
-    public Socio(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad, String pathCopiaCedula, String pathServicioBasico, String ciudad1, List<Referencia> referencias) {
-        super(identificacion, nombres, apellidos, telefono, celular, direccion, correo, ciudad);
+    public Socio(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono, String celular,
+                 String direccion, String correo, String ciudad, String pathCopiaCedula, String pathServicioBasico) {
+        super(identificacion, nombre, apellido, fechaNacimiento, telefono, celular, direccion, correo, ciudad);
         this.pathCopiaCedula = pathCopiaCedula;
         this.pathServicioBasico = pathServicioBasico;
-        this.ciudad = ciudad1;
-        this.referencias = referencias;
     }
 
     public String getPathCopiaCedula() {
@@ -49,43 +42,11 @@ public class Socio extends Persona implements Serializable {
         this.pathServicioBasico = pathServicioBasico;
     }
 
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
     public List<Referencia> getReferencias() {
         return referencias;
     }
 
     public void setReferencias(List<Referencia> referencias) {
         this.referencias = referencias;
-    }
-
-    //////////////
-
-    public boolean crear(Socio socio){
-
-        return false;
-    }
-
-    public boolean editar(Socio socio){
-        return false;
-    }
-
-    public boolean eliminar(Socio socio){
-        return false;
-    }
-
-    public Socio verInformacion(String identificacion){
-        return null;
-    }
-
-    public List<Socio> listarSocios(){
-        return null;
     }
 }

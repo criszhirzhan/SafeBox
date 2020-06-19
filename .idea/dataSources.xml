@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Safebox/EclipseLink" uuid="31fa6765-c3bb-4daf-a89f-bfefc76b6a9b">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>EclipseLink
+
+D:/SafeBox/src/main/resources/META-INF/persistence.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://safeboxups.mysql.database.azure.com/safebox?serverTimezone=UTC</jdbc-url>
+    </data-source>
+  </component>
+</project>

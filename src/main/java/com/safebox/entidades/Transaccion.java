@@ -3,6 +3,7 @@ package com.safebox.entidades;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
+
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Transaccion {

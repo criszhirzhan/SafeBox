@@ -1,38 +1,30 @@
 package com.safebox.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
+
 
 @Entity
-@Table(name = "empleado")
-public class Empleado extends Persona implements Serializable {
-
-
-    @Column(name = "NICKNAME", nullable = false, length = 40)
+public class Empleado extends  Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Column( nullable = false, length = 32)
     private String nick;
-
-    @Column(name = "CONTRASENA", nullable = false, length = 40)
+    @Column( nullable = false, length = 64)
     private String contrasena;
-
-
+    @JoinColumn(nullable=false)
+    @ManyToOne
     private Rol rol;
 
-    public Empleado(Rol rol, String nick, String contrasena) {
-        this.rol = rol;
+    public Empleado() {
+
+    }
+
+    public Empleado(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
+                    String celular, String direccion, String correo, String ciudad, String nick, String contrasena, Rol rol) {
+        super(identificacion, nombre, apellido, fechaNacimiento, telefono, celular, direccion, correo, ciudad);
         this.nick = nick;
         this.contrasena = contrasena;
-    }
-
-
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
@@ -52,28 +44,11 @@ public class Empleado extends Persona implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public boolean crear(Empleado empleado){
-
-        return false;
+    public Rol getRol() {
+        return rol;
     }
 
-    public boolean editar(Empleado empleado){
-        return false;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
-
-    public boolean eliminar(Empleado empleado){
-        return false;
-    }
-
-    public Rol verInformacionEmpleado(String identificacion){
-        return null;
-    }
-
-    public List<Empleado> listarEmpleados(){
-        return null;
-    }
-
-    public String generarNick(String nombres, String apellidos){return  null;}
-
-    public String generarContrasena(){return null;}
 }

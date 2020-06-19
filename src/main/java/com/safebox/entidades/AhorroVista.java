@@ -1,7 +1,6 @@
 package com.safebox.entidades;
 
 import java.util.Date;
-import java.util.List;
 
 public class AhorroVista extends CuentaAhorro {
 

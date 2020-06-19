@@ -2,19 +2,23 @@ package com.safebox.entidades;
 
 import javax.persistence.*;
 import java.util.List;
-@Entity
-@Table(name = "rol")
-public class Rol {
+import java.util.Objects;
 
+@Entity
+public class Rol {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
 
-    @Column(name = "NOMBRE", nullable = false, length = 40)
+    @Column(nullable = false, length = 25)
     private String nombre;
-
-    @Column(name = "DESCRIPCION", nullable = false, length = 60)
+    @Column(nullable = false, length = 250)
     private String descripcion;
+
+    public Rol() {
+
+    }
 
     public Rol(int codigo, String nombre, String descripcion) {
         this.codigo = codigo;
@@ -46,10 +50,18 @@ public class Rol {
         this.descripcion = descripcion;
     }
 
-    public boolean crear(Rol rol){return false;}
-    public boolean editar(Rol rol){return false;}
-    public boolean eliminar(Rol rol){return false;}
-    public Rol verInformacion(int codigo){return null;}
-    public List<Rol> listarRoles(){return null;}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rol)) return false;
+        Rol rol = (Rol) o;
+        return codigo == rol.codigo &&
+                nombre.equals(rol.nombre) &&
+                descripcion.equals(rol.descripcion);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo, nombre, descripcion);
+    }
 }

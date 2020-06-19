@@ -1,31 +1,35 @@
 package com.safebox.entidades;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-public class LineaCredito {
-
+public class LineaCredito implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
-    @Column(name = "NOMBRE", nullable = false, length = 25)
+    @Column(nullable = false, length = 25)
     protected String nombre;
-    @Column(name = "DESCRIPCION", nullable = false, length = 250)
+    @Column(nullable = false, length = 250)
     protected String descripcion;
-    @Column(name = "INTERES", nullable = false, scale = 2)
+    @Column(nullable = false, scale = 2)
     protected double interes;
-    @Column(name = "MONTOMAXIMO", nullable = false, scale = 2)
+    @Column(nullable = false, scale = 2)
     protected double montoMaximo;
-    @Column(name = "PLAZOMAXIMO", nullable = false, length = 25)
     protected int plazoMaximo;
     @Temporal(TemporalType.DATE)
     protected Date fechaModificacion;
-    @Column(name = "ESTADO", nullable = false, length = 25)
-    protected String estado;
+    protected boolean estado;
 
-    public LineaCredito(int codigo, String nombre, String descripcion, double interes, double montoMaximo, int plazoMaximo, Date fechaModificacion, String estado) {
+    public LineaCredito() {
+
+    }
+    public LineaCredito(int codigo, String nombre, String descripcion, double interes, double montoMaximo,
+                        int plazoMaximo, Date fechaModificacion, boolean estado) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -40,83 +44,83 @@ public class LineaCredito {
         return codigo;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public double getInteres() {
-        return interes;
-    }
-
-    public double getMontoMaximo() {
-        return montoMaximo;
-    }
-
-    public int getPlazoMaximo() {
-        return plazoMaximo;
-    }
-
-    public Date getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public double getInteres() {
+        return interes;
     }
 
     public void setInteres(double interes) {
         this.interes = interes;
     }
 
+    public double getMontoMaximo() {
+        return montoMaximo;
+    }
+
     public void setMontoMaximo(double montoMaximo) {
         this.montoMaximo = montoMaximo;
+    }
+
+    public int getPlazoMaximo() {
+        return plazoMaximo;
     }
 
     public void setPlazoMaximo(int plazoMaximo) {
         this.plazoMaximo = plazoMaximo;
     }
 
+    public Date getFechaModificacion() {
+        return fechaModificacion;
+    }
+
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public void setEstado(String estado) {
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
-    public boolean crear(LineaCredito lineaCredito){
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof LineaCredito)) return false;
+        LineaCredito that = (LineaCredito) o;
+        return codigo == that.codigo &&
+                Double.compare(that.interes, interes) == 0 &&
+                Double.compare(that.montoMaximo, montoMaximo) == 0 &&
+                plazoMaximo == that.plazoMaximo &&
+                estado == that.estado &&
+                nombre.equals(that.nombre) &&
+                descripcion.equals(that.descripcion) &&
+                fechaModificacion.equals(that.fechaModificacion);
     }
 
-    public boolean editar(LineaCredito lineaCredito){
-        return false;
-    }
-
-    public boolean eliminar(LineaCredito lineaCredito){
-        return false;
-    }
-
-    public LineaCredito verInfo(String nombre){
-        return null;
-    }
-
-    public List<LineaCredito> listar(){
-        return null;
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo, nombre, descripcion, interes, montoMaximo, plazoMaximo, fechaModificacion, estado);
     }
 }

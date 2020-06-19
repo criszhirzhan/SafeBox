@@ -1,11 +1,9 @@
 package com.safebox.entidades;
 
-import com.safebox.entidades.Transaccion;
-
 import javax.persistence.Entity;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
+
 @Entity
 public class Aportacion  extends Transaccion {
     private int numeroCuota;

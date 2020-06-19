@@ -1,6 +1,7 @@
 package com.safebox.dao;
 
-import com.safebox.entidades.AhorroProgramado;
+import com.safebox.entidades.LineaCredito;
 
-public interface LineaCreditoDAO extends GenericDAO<com.safebox.entidades.LineaCredito, Integer>{
+public interface LineaCreditoDAO extends GenericDAO<LineaCredito, Integer> {
+
 }
