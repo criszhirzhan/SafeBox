@@ -1,8 +1,13 @@
 package com.safebox.dao;
 
+import com.safebox.entidades.Deposito;
 import com.safebox.entidades.Rol;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -23,42 +28,52 @@ public class DepositoDAOTest {
     }
 
     @Test
-    public void create() {
-        Rol rol=new Rol();
-        rol.setCodigo(1);
-        rol.setNombre("Administrador");
-        rol.setDescripcion("NA");
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        assertEquals(true,rolDAO.create(rol));
+    public void create() throws ParseException {
+        Deposito deposito=new Deposito();
+
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        deposito.setFecha(fecha);
+        deposito.setMonto(892.36);
+        deposito.setObservacion("S/O");
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertEquals(true,depositoDAO.create(deposito));
     }
 
     @Test
     public void read(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertNotNull(rol);
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        Deposito deposito=new Deposito();
+        deposito=depositoDAO.read(1);
+        assertNotNull(deposito);
     }
 
     @Test
     public void  update(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        rol.setDescripcion("NuevaDescripcion");
-        assertEquals(true,rolDAO.update(rol));
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        Deposito deposito=new Deposito();
+        deposito=depositoDAO.read(1);
+        deposito.setMonto(45.63);
+        assertEquals(true,depositoDAO.update(deposito));
     }
 
     @Test
     public void findAll(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        List<Rol> roles=rolDAO.findAll();
-        assertNotNull(roles);
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        List<Deposito> depositos=depositoDAO.findAll();
+        assertNotNull(depositos);
     }
 
     @Test
     public void  delete(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertEquals(true,rolDAO.delete(rol));
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        Deposito deposito=new Deposito();
+        deposito=depositoDAO.read(1);
+        assertEquals(true,depositoDAO.delete(deposito));
     }
 
     @Test

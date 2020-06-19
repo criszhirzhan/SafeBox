@@ -1,8 +1,13 @@
 package com.safebox.dao;
 
+import com.safebox.entidades.Aportacion;
 import com.safebox.entidades.Rol;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -38,42 +43,50 @@ public class AportacionDAOTest {
 
 
     @Test
-    public void create() {
-        Rol rol=new Rol();
-        rol.setCodigo(1);
-        rol.setNombre("Administrador");
-        rol.setDescripcion("NA");
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        assertEquals(true,rolDAO.create(rol));
+    public void create() throws ParseException {
+        Aportacion aportacion=new Aportacion();
+
+        aportacion.setNumeroCuota(45);
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        aportacion.setFecha(fecha);
+        aportacion.setMonto(89.52);
+        aportacion.setObservacion("S/C");
+
+        AportacionDAO aportacionDAO= DAOFactory.getDAOFactory().getAportacionDAO();
+        assertEquals(true,aportacionDAO.create(aportacion));
     }
 
     @Test
     public void read(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertNotNull(rol);
+        AportacionDAO aportacionDAO= DAOFactory.getDAOFactory().getAportacionDAO();
+        Aportacion aportacion=aportacionDAO.read(1);
+        assertNotNull(aportacion);
     }
 
     @Test
     public void  update(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        rol.setDescripcion("NuevaDescripcion");
-        assertEquals(true,rolDAO.update(rol));
+        AportacionDAO aportacionDAO= DAOFactory.getDAOFactory().getAportacionDAO();
+        Aportacion aportacion=aportacionDAO.read(1);
+        aportacion.setMonto(74.63);
+        assertEquals(true,aportacionDAO.update(aportacion));
     }
 
     @Test
     public void findAll(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        List<Rol> roles=rolDAO.findAll();
-        assertNotNull(roles);
+        AportacionDAO aportacionDAO= DAOFactory.getDAOFactory().getAportacionDAO();
+        List<Aportacion> aportaciones=aportacionDAO.findAll();
+        assertNotNull(aportaciones);
     }
 
     @Test
     public void  delete(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertEquals(true,rolDAO.delete(rol));
+        AportacionDAO aportacionDAO= DAOFactory.getDAOFactory().getAportacionDAO();
+        Aportacion aportacion=aportacionDAO.read(1);
+        assertEquals(true,aportacionDAO.delete(aportacion));
     }
 
 
