@@ -18,7 +18,7 @@ public class LineaCredito implements Serializable {
     protected String descripcion;
     @Column(nullable = false, scale = 2)
     protected double interes;
-    @Column(nullable = false, scale = 2)
+    @Column(nullable = false, scale = 3)
     protected double montoMaximo;
     protected int plazoMaximo;
     @Temporal(TemporalType.DATE)

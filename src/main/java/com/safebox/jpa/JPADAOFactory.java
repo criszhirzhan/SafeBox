@@ -69,9 +69,6 @@ public class JPADAOFactory extends DAOFactory{
     }
 
 
-
-
-
     @Override
     public CreditoDAO getCreditoDAO() {
         return new JPACreditoDAO();
