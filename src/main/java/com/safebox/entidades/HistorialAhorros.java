@@ -1,12 +1,13 @@
 package com.safebox.entidades;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class HistorialAhorros {
+public class HistorialAhorros implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
@@ -15,16 +16,16 @@ public class HistorialAhorros {
     @JoinColumn
     @ManyToOne
     private CuentaAhorro cuenta;
-    @Column(name = "DETALLE", nullable = false, length = 250)
+    @Column(nullable = false, length = 250)
     private String detalle;
-    @Column(name = "RETIRO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double retiro;
-    @Column(name = "DEPOSITO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double deposito;
-    @Column(name = "SALDO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double saldo;
 
-    private List<Transaccion> transacciones;
+
 
     public HistorialAhorros(){
 
@@ -96,13 +97,6 @@ public class HistorialAhorros {
         this.saldo = saldo;
     }
 
-    public List<Transaccion> getTransacciones() {
-        return transacciones;
-    }
-
-    public void setTransacciones(List<Transaccion> transacciones) {
-        this.transacciones = transacciones;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -115,12 +109,11 @@ public class HistorialAhorros {
                 Double.compare(that.saldo, saldo) == 0 &&
                 fecha.equals(that.fecha) &&
                 cuenta.equals(that.cuenta) &&
-                detalle.equals(that.detalle) &&
-                transacciones.equals(that.transacciones);
+                detalle.equals(that.detalle) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigo, fecha, cuenta, detalle, retiro, deposito, saldo, transacciones);
+        return Objects.hash(codigo, fecha, cuenta, detalle, retiro, deposito, saldo);
     }
 }

@@ -6,13 +6,34 @@
 
     <persistence-unit name="Safebox">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.safebox.entidades.Persona</class>
+        <class>com.safebox.entidades.AhorroProgramado</class>
+        <class>com.safebox.entidades.AhorroVista</class>
+        <class>com.safebox.entidades.Aportacion</class>
+        <class>com.safebox.entidades.Caja</class>
+        <class>com.safebox.entidades.Credito</class>
         <class>com.safebox.entidades.CreditoOnline</class>
+        <class>com.safebox.entidades.Deposito</class>
         <class>com.safebox.entidades.Empleado</class>
+        <class>com.safebox.entidades.Garante</class>
+        <class>com.safebox.entidades.HistorialAhorros</class>
         <class>com.safebox.entidades.LineaCredito</class>
+        <class>com.safebox.entidades.PagoCredito</class>
+        <class>com.safebox.entidades.Propiedad</class>
         <class>com.safebox.entidades.Referencia</class>
+        <class>com.safebox.entidades.Retiro</class>
         <class>com.safebox.entidades.Rol</class>
+        <class>com.safebox.entidades.Socio</class>
+        <class>com.safebox.entidades.TablaAmortizacion</class>
+        <class>com.safebox.entidades.Vehiculo</class>
+        <class>com.safebox.entidades.ReferenciaGarante</class>
+        <class>com.safebox.entidades.Horario</class>
+        <class>com.safebox.entidades.LibroDiario</class>
 
+
+        <class>com.safebox.entidades.Persona</class>
+        <class>com.safebox.entidades.CuentaAhorro</class>
+        <class>com.safebox.entidades.Transaccion</class>
+        <class>com.safebox.entidades.Garantia</class>
 
         <properties>
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />

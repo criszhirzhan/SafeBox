@@ -3,21 +3,27 @@ package com.safebox.entidades;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class AhorroProgramado extends CuentaAhorro {
+public class AhorroProgramado extends CuentaAhorro implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int duracionContrato;
     @Temporal(TemporalType.DATE)
     private Date fechaInicioContrato;
     @Temporal(TemporalType.DATE)
     private Date fechaFinalizacionContrato;
 
-    public AhorroProgramado() {
-        super();
+    public AhorroProgramado(){
+
 
     }
+
+
+
     public AhorroProgramado(int codigo, Socio socio, Date fechaApertura, double interes, String estado, double saldo,
                             String nick, double retiroMaximo, Date fechaUltimoIngreso, int duracionContrato,
                             Date fechaInicioContrato, Date fechaFinalizacionContrato) {

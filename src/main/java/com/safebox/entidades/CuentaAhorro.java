@@ -14,20 +14,21 @@ public abstract class CuentaAhorro {
     private Socio socio;
     @Temporal(TemporalType.DATE)
     private Date fechaApertura;
-    @Column(name = "INTERES", nullable = false, scale = 2)
+    @Column(nullable = false, scale = 2)
     private double interes;
-    @Column(name = "ESTADO", nullable = false, length = 11)
+    @Column( nullable = false, length = 11)
     private String estado;
-    @Column(name = "SALDO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double saldo;
-    @Column(name = "NICK", nullable = false, length = 25)
+    @Column( nullable = false, length = 25)
     private String nick;
-    @Column(name = "RETIROMAXIMO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double retiroMaximo;
     @Temporal(TemporalType.DATE)
     private Date fechaUltimoIngreso;
 
-    private CuentaAhorro(){
+    public CuentaAhorro(){
+
         super();
     }
 
@@ -43,6 +44,7 @@ public abstract class CuentaAhorro {
         this.retiroMaximo = retiroMaximo;
         this.fechaUltimoIngreso = fechaUltimoIngreso;
     }
+
 
 
 

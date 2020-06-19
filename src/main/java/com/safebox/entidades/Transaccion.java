@@ -15,12 +15,12 @@ public abstract class Transaccion {
     private Caja caja;
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    @Column(name = "MONTO", nullable = false, scale = 2)
+    @Column( nullable = false, scale = 2)
     private double monto;
     @ManyToOne
     @JoinColumn
     private CuentaAhorro cuenta;
-    @Column(name = "OBSERVACION", nullable = false, length = 250)
+    @Column( nullable = false, length = 250)
     private String observacion;
 
     public Transaccion(){

@@ -1,11 +1,12 @@
 package com.safebox.entidades;
 
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Aportacion  extends Transaccion {
+public class Aportacion  extends Transaccion implements Serializable {
     private int numeroCuota;
 
     public Aportacion(){
