@@ -8,4 +8,14 @@ public class JPACajaDAO  extends JPAGenericDAO<Caja, Integer> implements CajaDAO
     public JPACajaDAO() {
         super(Caja.class);
     }
+
+    @Override
+    public boolean anadirSaldo(double monto, int numeroCaja) {
+        return false;
+    }
+
+    @Override
+    public double recalcularSaldo() {
+        return 0;
+    }
 }

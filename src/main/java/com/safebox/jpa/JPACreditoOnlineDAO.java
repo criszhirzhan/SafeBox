@@ -7,4 +7,9 @@ public class JPACreditoOnlineDAO extends JPAGenericDAO<CreditoOnline, Integer> i
     public JPACreditoOnlineDAO() {
         super(CreditoOnline.class);
     }
+
+    @Override
+    public boolean modificarEstado(String estado) {
+        return false;
+    }
 }

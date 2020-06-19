@@ -7,4 +7,9 @@ public class JPALineaCreditoDAO extends JPAGenericDAO<LineaCredito, Integer> imp
     public JPALineaCreditoDAO() {
         super(LineaCredito.class);
     }
+
+    @Override
+    public LineaCredito verInformacion(String nombre) {
+        return null;
+    }
 }

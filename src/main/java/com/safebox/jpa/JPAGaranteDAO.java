@@ -8,4 +8,9 @@ public class JPAGaranteDAO  extends JPAGenericDAO<Garante, String> implements Ga
     public JPAGaranteDAO() {
         super(Garante.class);
     }
+
+    @Override
+    public Garante verInformacion(String identificacion) {
+        return null;
+    }
 }

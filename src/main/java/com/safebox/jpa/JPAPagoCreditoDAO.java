@@ -7,4 +7,9 @@ public class JPAPagoCreditoDAO extends JPAGenericDAO<PagoCredito, Integer> imple
     public JPAPagoCreditoDAO() {
         super(PagoCredito.class);
     }
+
+    @Override
+    public boolean realizarPago(PagoCredito pagoCredito) {
+        return false;
+    }
 }
