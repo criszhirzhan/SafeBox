@@ -1,11 +1,18 @@
 package com.safebox.entidades;
 
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Persona {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String identificacion;
+
     protected  String nombres;
     protected String apellidos;
     protected String telefono;
@@ -13,6 +20,21 @@ public abstract class Persona {
     protected String direccion;
     protected String correo;
     protected String ciudad;
+
+    public Persona(String identificacion, String nombres, String apellidos, String telefono, String celular, String direccion, String correo, String ciudad) {
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.celular = celular;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.ciudad = ciudad;
+    }
+
+    public Persona() {
+
+    }
 
     public String getIdentificacion() {
         return identificacion;

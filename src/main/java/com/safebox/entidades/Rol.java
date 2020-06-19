@@ -1,10 +1,19 @@
 package com.safebox.entidades;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name = "rol")
 public class Rol {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+
+    @Column(name = "NOMBRE", nullable = false, length = 40)
     private String nombre;
+
+    @Column(name = "DESCRIPCION", nullable = false, length = 60)
     private String descripcion;
 
     public Rol(int codigo, String nombre, String descripcion) {
