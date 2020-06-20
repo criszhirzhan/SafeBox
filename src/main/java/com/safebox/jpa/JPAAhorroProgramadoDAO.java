@@ -49,14 +49,15 @@ public class JPAAhorroProgramadoDAO extends JPAGenericDAO<AhorroProgramado, Inte
     }
 
     @Override
-    public boolean realizarDeposito(Double monto, AhorroVista ahorroVista) {
+    public boolean realizarDeposito(Double monto, AhorroProgramado ahorroProgramado) {
         return false;
     }
 
     @Override
-    public boolean realizarRetiro(Double monto, AhorroVista ahorroVista) {
+    public boolean realizarRetiro(Double monto, AhorroProgramado ahorroProgramado) {
         return false;
     }
+
 
     @Override
     public AhorroProgramado buscarPorNombresApellidos(String contex) {

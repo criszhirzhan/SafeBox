@@ -1,4 +1,4 @@
-package com.safebox.jpa;
+package com.safebox.dao;
 
 import com.safebox.dao.DAOFactory;
 import com.safebox.dao.RolDAO;
@@ -74,8 +74,13 @@ public class SocioTest {
 
     @Test
     public List<Socio> buscarPorIdentificacionOApellidos(String contex) {
+        SocioDAO socioDAO= DAOFactory.getDAOFactory().getSocioDAO();
+
+        assertNotNull(socioDAO.buscarPorIdentificacionOApellidos("cedula"));
+
         return null;
     }
+
 
 
 

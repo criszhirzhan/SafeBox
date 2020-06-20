@@ -36,7 +36,7 @@
         <class>com.safebox.entidades.Garantia</class>
 
         <properties>
-<!--            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> -->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://safeboxups.mysql.database.azure.com/safebox?serverTimezone=UTC"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="eclipselink.jdbc.user" value="manager@safeboxups"/>

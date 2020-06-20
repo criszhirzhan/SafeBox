@@ -16,15 +16,43 @@ import static org.junit.Assert.assertNotNull;
 public class DepositoDAOTest {
 
     @Test
-    public void registrarTransaccion() {
+    public void registrarTransaccion() throws ParseException {
+
+        Deposito deposito=new Deposito();
+
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        deposito.setFecha(fecha);
+        deposito.setMonto(892.36);
+        deposito.setObservacion("S/O");
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.registrarTransaccion(deposito));
+
     }
 
     @Test
-    public void listarPorFecha() {
+    public void listarPorFecha() throws ParseException {
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.listarPorFecha(fecha));
     }
 
     @Test
-    public void listarPorIntervaloDeFechas() {
+    public void listarPorIntervaloDeFechas() throws ParseException {
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.listarPorIntervaloDeFechas(fecha, fecha));
     }
 
     @Test
@@ -76,19 +104,5 @@ public class DepositoDAOTest {
         assertEquals(true,depositoDAO.delete(deposito));
     }
 
-    @Test
-    public void deposito(){
-
-    }
-
-    @Test
-    public void listar(){
-
-    }
-
-    @Test
-    public void fechaFinalDate(){
-
-    }
 
 }

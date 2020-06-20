@@ -1,6 +1,8 @@
 package com.safebox.dao;
 
+import com.safebox.entidades.AhorroProgramado;
 import com.safebox.entidades.Aportacion;
+import com.safebox.entidades.Deposito;
 import com.safebox.entidades.Rol;
 import org.junit.Test;
 
@@ -16,30 +18,53 @@ import static org.junit.Assert.assertNotNull;
 public class AportacionDAOTest {
 
     @Test
-    public void registrarTransaccion() {
+    public void registrarTransaccion() throws ParseException {
+        Deposito deposito=new Deposito();
+
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        deposito.setFecha(fecha);
+        deposito.setMonto(892.36);
+        deposito.setObservacion("S/O");
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.registrarTransaccion(deposito));
+
     }
 
     @Test
-    public void listarPorFecha() {
+    public void listarPorFecha() throws ParseException {
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.listarPorFecha(fecha));
     }
 
     @Test
-    public void listarPorIntervaloDeFechas() {
+    public void listarPorIntervaloDeFechas() throws ParseException {
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        DepositoDAO depositoDAO= DAOFactory.getDAOFactory().getDepositoDAO();
+        assertNotNull(depositoDAO.listarPorIntervaloDeFechas(fecha, fecha));
     }
 
     @Test
     public void generarResumenDeAportaciones() {
-    }
+        AportacionDAO aportacionDAO  = DAOFactory.getDAOFactory().getAportacionDAO();
+        AhorroProgramadoDAO ahorroProgramadoDAO = DAOFactory.getDAOFactory().getAhorroProgramadoDAO();
 
-    @Test
-    public void realizarAportacion(){
-
-    }
-
-    @Test
-    public void fechaFinalDate(){
+        assertEquals(true,aportacionDAO.generarResumenDeAportaciones(ahorroProgramadoDAO.read(1)));
 
     }
+
+
 
 
     @Test

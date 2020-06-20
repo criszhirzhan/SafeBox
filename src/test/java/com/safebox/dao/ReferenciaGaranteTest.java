@@ -1,4 +1,4 @@
-package com.safebox.jpa;
+package com.safebox.dao;
 
 import com.safebox.dao.*;
 import com.safebox.entidades.Garante;

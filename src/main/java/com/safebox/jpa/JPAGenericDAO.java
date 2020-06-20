@@ -17,18 +17,19 @@ public class JPAGenericDAO <T, ID> implements GenericDAO<T,ID> {
 
     @Override
     public boolean create(T entity) {
-        em.getTransaction().begin();
-        try {
-            em.persist(entity);
-            em.getTransaction().commit();
-            return true;
-        } catch (Exception e) {
-            System.out.println("INGRESANDO: /n");
-            System.out.println(">>>> ERROR:JPAGenericDAO:create " + e);
-            if (em.getTransaction().isActive())
-                em.getTransaction().rollback();
-            return false;
-        }
+//        em.getTransaction().begin();
+//        try {
+//            em.persist(entity);
+//            em.getTransaction().commit();
+//            return true;
+//        } catch (Exception e) {
+//            System.out.println("INGRESANDO: /n");
+//            System.out.println(">>>> ERROR:JPAGenericDAO:create " + e);
+//            if (em.getTransaction().isActive())
+//                em.getTransaction().rollback();
+//            return false;
+//        }
+        return false;
     }
 
     @Override
