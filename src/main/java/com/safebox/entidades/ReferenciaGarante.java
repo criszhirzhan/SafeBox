@@ -16,11 +16,11 @@ public class ReferenciaGarante implements Serializable {
 
     public ReferenciaGarante(){}
 
-    public ReferenciaGarante(int codigo, Garante garante, String path) {
+ /*   public ReferenciaGarante(int codigo, Garante garante, String path) {
         this.codigo = codigo;
         this.garante = garante;
         this.path = path;
-    }
+    }*/
 
     public int getCodigo() {
         return codigo;
@@ -30,17 +30,17 @@ public class ReferenciaGarante implements Serializable {
         this.codigo = codigo;
     }
 
-    public Garante getGarante() {
+ /*   public Garante getGarante() {
         return garante;
-    }
+    }*/
 
     public void setGarante(Garante garante) {
         this.garante = garante;
     }
 
-    public String getPath() {
+    /*public String getPath() {
         return path;
-    }
+    }*/
 
     public void setPath(String path) {
         this.path = path;

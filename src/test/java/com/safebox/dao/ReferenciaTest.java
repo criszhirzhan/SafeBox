@@ -32,6 +32,7 @@ public class ReferenciaTest {
         socio.setCorreo("mariavelez@gmail.com");
         socio.setTelefono("2271239");
 
+
         String entrada = "01/10/1997";
         DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
         Date fecha = format.parse(entrada);

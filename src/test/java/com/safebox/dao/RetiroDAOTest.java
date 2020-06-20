@@ -8,18 +8,18 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class RetiroDAOTest {
-
-    @Test
-    public void registrarTransaccion() {
-    }
-
-    @Test
-    public void listarPorFecha() {
-    }
-
-    @Test
-    public void listarPorIntervaloDeFechas() {
-    }
+//
+//    @Test
+//    public void registrarTransaccion() {
+//    }
+//
+//    @Test
+//    public void listarPorFecha() {
+//    }
+//
+//    @Test
+//    public void listarPorIntervaloDeFechas() {
+//    }
 
     @Test
     public void create() {
@@ -60,19 +60,6 @@ public class RetiroDAOTest {
         assertEquals(true,rolDAO.delete(rol));
     }
 
-    @Test
-    public void retiro(){
 
-    }
-
-    @Test
-    public void fechaFinalDate(){
-
-    }
-
-    @Test
-    public void listarPorIntervaloFecha(){
-        
-    }
 
 }

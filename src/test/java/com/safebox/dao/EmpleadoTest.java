@@ -30,7 +30,8 @@ public class EmpleadoTest {
         empleado.setCiudad("Cuenca");
         empleado.setCorreo("juan@hotmail.com");
         empleado.setTelefono("2271239");
-
+        empleado.setNick("JuanP");
+        empleado.setContrasena("passwd");
         String entrada = "12/03/1995";
         DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
         Date fecha = format.parse(entrada);
@@ -72,20 +73,20 @@ public class EmpleadoTest {
         Empleado empleado=empleadoDAO.read("0989786789");
         assertEquals(true,empleadoDAO.delete(empleado));
     }
-
-    @Test
-    public String generarNick(String nombre, String apellido) {
-        return null;
-    }
-
-    @Test
-    public String generarContrasena() {
-        return null;
-    }
-
-    @Test
-    public List<Empleado> bucarPorRol() {
-        return null;
-    }
+//
+//    @Test
+//    public String generarNick(String nombre, String apellido) {
+//        return null;
+//    }
+//
+//    @Test
+//    public String generarContrasena() {
+//        return null;
+//    }
+//
+//    @Test
+//    public List<Empleado> bucarPorRol() {
+//        return null;
+//    }
 
 }

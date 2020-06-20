@@ -57,7 +57,7 @@ public class AhorroProgramado extends CuentaAhorro implements Serializable {
         this.fechaFinalizacionContrato = fechaFinalizacionContrato;
     }
 
-    @Override
+  /*  @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof AhorroProgramado)) return false;
@@ -66,10 +66,10 @@ public class AhorroProgramado extends CuentaAhorro implements Serializable {
         return duracionContrato == that.duracionContrato &&
                 fechaInicioContrato.equals(that.fechaInicioContrato) &&
                 fechaFinalizacionContrato.equals(that.fechaFinalizacionContrato);
-    }
+    }*/
 
-    @Override
+   /* @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), duracionContrato, fechaInicioContrato, fechaFinalizacionContrato);
-    }
+    }*/
 }

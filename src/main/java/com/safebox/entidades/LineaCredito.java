@@ -56,39 +56,39 @@ public class LineaCredito implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+ /*   public String getDescripcion() {
         return descripcion;
-    }
+    }*/
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public double getInteres() {
+    /*public double getInteres() {
         return interes;
-    }
+    }*/
 
     public void setInteres(double interes) {
         this.interes = interes;
     }
 
-    public double getMontoMaximo() {
+ /*   public double getMontoMaximo() {
         return montoMaximo;
-    }
+    }*/
 
     public void setMontoMaximo(double montoMaximo) {
         this.montoMaximo = montoMaximo;
     }
 
-    public int getPlazoMaximo() {
+   /* public int getPlazoMaximo() {
         return plazoMaximo;
-    }
+    }*/
 
     public void setPlazoMaximo(int plazoMaximo) {
         this.plazoMaximo = plazoMaximo;
     }
 
-    public Date getFechaModificacion() {
+   /* public Date getFechaModificacion() {
         return fechaModificacion;
     }
 
@@ -122,5 +122,5 @@ public class LineaCredito implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion, interes, montoMaximo, plazoMaximo, fechaModificacion, estado);
-    }
+    }*/
 }

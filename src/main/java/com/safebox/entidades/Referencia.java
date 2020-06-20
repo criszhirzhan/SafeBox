@@ -12,6 +12,10 @@ public class Referencia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
+
+
+    @ManyToOne
+    @JoinColumn
     private Socio socio;
     @Column(nullable = false, length = 100)
     private String path;
@@ -19,11 +23,11 @@ public class Referencia implements Serializable {
     public  Referencia(){
     }
 
-    public Referencia(int codigo, Socio socio, String path) {
+/*    public Referencia(int codigo, Socio socio, String path) {
         this.codigo = codigo;
         this.socio = socio;
         this.path = path;
-    }
+    }*/
 
     public int getCodigo() {
         return codigo;
@@ -41,9 +45,9 @@ public class Referencia implements Serializable {
         this.socio = socio;
     }
 
-    public String getPath() {
+/*    public String getPath() {
         return path;
-    }
+    }*/
 
     public void setPath(String path) {
         this.path = path;

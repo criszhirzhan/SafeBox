@@ -20,25 +20,25 @@ public class Empleado extends  Persona implements Serializable {
 
     }
 
-    public Empleado(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
+/*    public Empleado(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
                     String celular, String direccion, String correo, String ciudad, String nick, String contrasena, Rol rol) {
         super(identificacion, nombre, apellido, fechaNacimiento, telefono, celular, direccion, correo, ciudad);
         this.nick = nick;
         this.contrasena = contrasena;
         this.rol = rol;
-    }
+    }*/
 
-    public String getNick() {
+/*    public String getNick() {
         return nick;
-    }
+    }*/
 
     public void setNick(String nick) {
         this.nick = nick;
     }
 
-    public String getContrasena() {
+/*    public String getContrasena() {
         return contrasena;
-    }
+    }*/
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;

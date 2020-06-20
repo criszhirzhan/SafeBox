@@ -17,7 +17,7 @@ public class PagoCreditoDAOTest {
     }
 
 
-    @Test
-    public void realizarPago() {
-    }
+//    @Test
+//    public void realizarPago() {
+//    }
 }

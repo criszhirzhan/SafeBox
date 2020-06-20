@@ -52,7 +52,7 @@ public class TablaAmortizacion implements Serializable {
         return codigo;
     }
 
-    public int getPeriodo() {
+  /*  public int getPeriodo() {
         return periodo;
     }
 
@@ -82,13 +82,13 @@ public class TablaAmortizacion implements Serializable {
 
     public String getEstado() {
         return estado;
-    }
+    }*/
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    public void setPeriodo(int periodo) {
+  /*  public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
 
@@ -123,7 +123,7 @@ public class TablaAmortizacion implements Serializable {
     public boolean crear(TablaAmortizacion tabla){
         return false;
     }
-
+*/
     public Credito getCredito() {
         return credito;
     }
@@ -132,16 +132,5 @@ public class TablaAmortizacion implements Serializable {
         this.credito = credito;
     }
 
-    public double calcularInteres(){
-        return this.pagoInteres;
-    }
-    public double calcularMora(){
-        return this.mora;
-    }
-    public double calcularCapital(){
-        return this.pagoCapital;
-    }
-    public double calcularSaldo(){
-        return this.saldo;
-    }
+
 }

@@ -25,13 +25,13 @@ public class PagoCredito implements Serializable {
     @JoinColumn
     private Caja caja;
 
-    public PagoCredito(int codigo, double monto, TablaAmortizacion tablaAmortizacion, Date fechaPago, Caja caja) {
+/*    public PagoCredito(int codigo, double monto, TablaAmortizacion tablaAmortizacion, Date fechaPago, Caja caja) {
         this.codigo = codigo;
         this.monto = monto;
         this.tablaAmortizacion = tablaAmortizacion;
         this.fechaPago = fechaPago;
         this.caja = caja;
-    }
+    }*/
 
     public PagoCredito (){}
 
@@ -51,7 +51,7 @@ public class PagoCredito implements Serializable {
         this.monto = monto;
     }
 
-    public TablaAmortizacion getTablaAmortizacion() {
+/*    public TablaAmortizacion getTablaAmortizacion() {
         return tablaAmortizacion;
     }
 
@@ -65,7 +65,7 @@ public class PagoCredito implements Serializable {
 
     public void setFechaPago(Date fechaPago) {
         this.fechaPago = fechaPago;
-    }
+    }*/
 
     public Caja getCaja() {
         return caja;

@@ -38,19 +38,19 @@ public class TablaAmortizacionDAOTest {
 
     }
     
-    @Test
-    public void calcularInteres() {
-    }
-
-    @Test
-    public void calcularMora() {
-    }
-
-    @Test
-    public void calcularCapital() {
-    }
-
-    @Test
-    public void calcularSaldo() {
-    }
+//    @Test
+//    public void calcularInteres() {
+//    }
+//
+//    @Test
+//    public void calcularMora() {
+//    }
+//
+//    @Test
+//    public void calcularCapital() {
+//    }
+//
+//    @Test
+//    public void calcularSaldo() {
+//    }
 }

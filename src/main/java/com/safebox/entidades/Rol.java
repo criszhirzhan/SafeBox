@@ -42,15 +42,15 @@ public class Rol {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
+    /*public String getDescripcion() {
         return descripcion;
-    }
+    }*/
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    @Override
+   /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Rol)) return false;
@@ -63,5 +63,5 @@ public class Rol {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, nombre, descripcion);
-    }
+    }*/
 }

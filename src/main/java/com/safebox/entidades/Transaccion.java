@@ -68,7 +68,7 @@ public abstract class Transaccion {
         this.monto = monto;
     }
 
-    public CuentaAhorro getCuenta() {
+/*    public CuentaAhorro getCuenta() {
         return cuenta;
     }
 
@@ -78,13 +78,13 @@ public abstract class Transaccion {
 
     public String getObservacion() {
         return observacion;
-    }
+    }*/
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
 
-    @Override
+  /*  @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Transaccion)) return false;
@@ -100,5 +100,5 @@ public abstract class Transaccion {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, caja, fecha, monto, cuenta, observacion);
-    }
+    }*/
 }

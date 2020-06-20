@@ -57,7 +57,5 @@ public class LineaCreditoDAOTest {
         assertEquals(true,lineaCreditoDAO.delete(lineaCredito));
     }
 
-    @Test
-    public void verInformacion() {
-    }
+
 }

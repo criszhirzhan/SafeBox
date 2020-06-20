@@ -1,8 +1,13 @@
 package com.safebox.dao;
 
+import com.safebox.entidades.HistorialAhorros;
 import com.safebox.entidades.Rol;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -10,48 +15,60 @@ import static org.junit.Assert.*;
 public class HistorialAhorrosDAOTest {
 
     @Test
-    public void create() {
-        Rol rol=new Rol();
-        rol.setCodigo(1);
-        rol.setNombre("Administrador");
-        rol.setDescripcion("NA");
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        assertEquals(true,rolDAO.create(rol));
+    public void create() throws ParseException {
+
+        HistorialAhorros historialAhorros = new HistorialAhorros();
+        historialAhorros.setCodigo(13);
+
+        String entrada = "12/03/1995";
+        DateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date fecha = format.parse(entrada);
+
+        historialAhorros.setFecha(fecha);
+        historialAhorros.setDetalle("S/D");
+        historialAhorros.setDeposito(45.63);
+        historialAhorros.setRetiro(89.23);
+        historialAhorros.setSaldo(1000.63);
+
+        HistorialAhorrosDAO historialAhorrosDAO= DAOFactory.getDAOFactory().getHistorialAhorrosDAO();
+        assertEquals(true,historialAhorrosDAO.create(historialAhorros));
     }
 
     @Test
     public void read(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertNotNull(rol);
+        HistorialAhorrosDAO historialAhorrosDAO= DAOFactory.getDAOFactory().getHistorialAhorrosDAO();
+        HistorialAhorros historialAhorros = historialAhorrosDAO.read(1);
+        assertNotNull(historialAhorros);
     }
 
     @Test
     public void  update(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        rol.setDescripcion("NuevaDescripcion");
-        assertEquals(true,rolDAO.update(rol));
+        HistorialAhorrosDAO historialAhorrosDAO= DAOFactory.getDAOFactory().getHistorialAhorrosDAO();
+        HistorialAhorros historialAhorros = historialAhorrosDAO.read(1);
+
+        historialAhorros.setRetiro(120.96);
+        assertEquals(true,historialAhorrosDAO.update(historialAhorros));
     }
 
     @Test
     public void findAll(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        List<Rol> roles=rolDAO.findAll();
-        assertNotNull(roles);
+        HistorialAhorrosDAO historialAhorrosDAO= DAOFactory.getDAOFactory().getHistorialAhorrosDAO();
+        List<HistorialAhorros> historialAhorros=historialAhorrosDAO.findAll();
+        assertNotNull(historialAhorros);
     }
 
     @Test
     public void  delete(){
-        RolDAO rolDAO= DAOFactory.getDAOFactory().getRolDAO();
-        Rol rol=rolDAO.read(1);
-        assertEquals(true,rolDAO.delete(rol));
+        HistorialAhorrosDAO historialAhorrosDAO= DAOFactory.getDAOFactory().getHistorialAhorrosDAO();
+        HistorialAhorros historialAhorros = historialAhorrosDAO.read(1);
+
+        assertEquals(true,historialAhorrosDAO.delete(historialAhorros));
     }
 
-    @Test
-    public void calcularInteres(){
-
-    }
+//    @Test
+//    public void calcularInteres(){
+//
+//    }
 
 
 }

@@ -19,14 +19,14 @@ public class Aportacion  extends Transaccion implements Serializable {
         this.numeroCuota = numeroCuota;
     }
 
-    public int getNumeroCuota() {
-        return numeroCuota;
-    }
+//    public int getNumeroCuota() {
+//        return numeroCuota;
+//    }
 
     public void setNumeroCuota(int numeroCuota) {
         this.numeroCuota = numeroCuota;
     }
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,5 +39,5 @@ public class Aportacion  extends Transaccion implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), numeroCuota);
-    }
+    } */
 }

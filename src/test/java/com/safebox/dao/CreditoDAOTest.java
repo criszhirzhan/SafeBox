@@ -9,33 +9,33 @@ import static org.junit.Assert.*;
 
 public class CreditoDAOTest {
 
-    @Test
-    public void evaluar() {
-    }
-
-    @Test
-    public void generarContrato() {
-    }
-
-    @Test
-    public void entregarCredito() {
-    }
-
-    @Test
-    public void simularCredito() {
-    }
-
-    @Test
-    public void agregarNuevoParametro() {
-    }
-
-    @Test
-    public void eliminarParametro() {
-    }
-
-    @Test
-    public void listarCreditoPorEstado() {
-    }
+//    @Test
+//    public void evaluar() {
+//    }
+//
+//    @Test
+//    public void generarContrato() {
+//    }
+//
+//    @Test
+//    public void entregarCredito() {
+//    }
+//
+//    @Test
+//    public void simularCredito() {
+//    }
+//
+//    @Test
+//    public void agregarNuevoParametro() {
+//    }
+//
+//    @Test
+//    public void eliminarParametro() {
+//    }
+//
+//    @Test
+//    public void listarCreditoPorEstado() {
+//    }
     @Test
     public void create() {
         Credito credito =  new Credito();

@@ -26,27 +26,27 @@ public class Socio extends Persona implements Serializable {
         this.pathServicioBasico = pathServicioBasico;
     }
 
-    public String getPathCopiaCedula() {
+ /*   public String getPathCopiaCedula() {
         return pathCopiaCedula;
-    }
+    }*/
 
     public void setPathCopiaCedula(String pathCopiaCedula) {
         this.pathCopiaCedula = pathCopiaCedula;
     }
-
+/*
     public String getPathServicioBasico() {
         return pathServicioBasico;
-    }
+    }*/
 
     public void setPathServicioBasico(String pathServicioBasico) {
         this.pathServicioBasico = pathServicioBasico;
     }
 
-    public List<Referencia> getReferencias() {
+/*    public List<Referencia> getReferencias() {
         return referencias;
-    }
+    }*/
 
-    public void setReferencias(List<Referencia> referencias) {
+/*    public void setReferencias(List<Referencia> referencias) {
         this.referencias = referencias;
-    }
+    }*/
 }

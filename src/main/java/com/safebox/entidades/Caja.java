@@ -24,9 +24,9 @@ public class Caja implements Serializable {
         this.transacciones = transacciones;
     }
 
-    public int getNumeroCaja() {
+  /*  public int getNumeroCaja() {
         return numeroCaja;
-    }
+    }*/
 
     public void setNumeroCaja(int numeroCaja) {
         this.numeroCaja = numeroCaja;
@@ -40,11 +40,11 @@ public class Caja implements Serializable {
         this.montoDinero = montoDinero;
     }
 
-    public List<Transaccion> getTransacciones() {
+   /* public List<Transaccion> getTransacciones() {
         return transacciones;
     }
 
     public void setTransacciones(List<Transaccion> transacciones) {
         this.transacciones = transacciones;
-    }
+    } */
 }

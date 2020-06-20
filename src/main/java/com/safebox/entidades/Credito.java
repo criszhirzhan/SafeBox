@@ -45,15 +45,15 @@ public class Credito implements Serializable {
 
     public Credito(){}
 
-    public int getIcodigo() {
+   /* public int getIcodigo() {
         return icodigo;
-    }
+    }*/
 
     public Socio getSocio() {
         return socio;
     }
 
-    public int getPlazoMeses() {
+   /* public int getPlazoMeses() {
         return plazoMeses;
     }
 
@@ -79,7 +79,7 @@ public class Credito implements Serializable {
 
     public List<Garantia> getRequisitoList() {
         return requisitoList;
-    }
+    }*/
 
     public void setIcodigo(int icodigo) {
         this.icodigo = icodigo;
@@ -97,9 +97,9 @@ public class Credito implements Serializable {
         this.frecuenciaPago = frecuenciaPago;
     }
 
-    public void setLineacredito(LineaCredito lineacredito) {
+   /* public void setLineacredito(LineaCredito lineacredito) {
         this.lineacredito = lineacredito;
-    }
+    }*/
 
     public void setEstado(String estado) {
         this.estado = estado;
@@ -113,8 +113,8 @@ public class Credito implements Serializable {
         this.parametroEvaluacion = parametroEvaluacion;
     }
 
-    public void setRequisitoList(List<Garantia> requisitoList) {
+   /* public void setRequisitoList(List<Garantia> requisitoList) {
         this.requisitoList = requisitoList;
-    }
+    }*/
 
 }

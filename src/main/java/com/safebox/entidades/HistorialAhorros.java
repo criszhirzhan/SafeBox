@@ -31,7 +31,7 @@ public class HistorialAhorros implements Serializable {
 
     }
 
-    public HistorialAhorros(int codigo, Date fecha, CuentaAhorro cuenta, String detalle, double retiro, double deposito, double saldo) {
+   public HistorialAhorros(int codigo, Date fecha, CuentaAhorro cuenta, String detalle, double retiro, double deposito, double saldo) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.cuenta = cuenta;
@@ -57,48 +57,48 @@ public class HistorialAhorros implements Serializable {
         this.fecha = fecha;
     }
 
-    public CuentaAhorro getCuenta() {
+/*    public CuentaAhorro getCuenta() {
         return cuenta;
-    }
+    }*/
 
-    public void setCuenta(CuentaAhorro cuenta) {
+/*    public void setCuenta(CuentaAhorro cuenta) {
         this.cuenta = cuenta;
     }
 
     public String getDetalle() {
         return detalle;
-    }
+    }*/
 
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
 
-    public double getRetiro() {
+/*    public double getRetiro() {
         return retiro;
-    }
+    }*/
 
     public void setRetiro(double retiro) {
         this.retiro = retiro;
     }
-
+/*
     public double getDeposito() {
         return deposito;
-    }
+    }*/
 
     public void setDeposito(double deposito) {
         this.deposito = deposito;
     }
 
-    public double getSaldo() {
+/*    public double getSaldo() {
         return saldo;
-    }
+    }*/
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
 
-    @Override
+/*    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof HistorialAhorros)) return false;
@@ -115,5 +115,5 @@ public class HistorialAhorros implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, fecha, cuenta, detalle, retiro, deposito, saldo);
-    }
+    }*/
 }

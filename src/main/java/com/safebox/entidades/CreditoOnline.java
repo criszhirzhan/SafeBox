@@ -33,7 +33,7 @@ public class CreditoOnline extends Persona implements Serializable {
 
     }
 
-    public CreditoOnline(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
+/*    public CreditoOnline(String identificacion, String nombre, String apellido, Date fechaNacimiento, String telefono,
                          String celular, String direccion, String correo, String ciudad, int codigo, boolean esSocio,
                          LineaCredito lineaCredito, String destinoDeFondos, String actividadLaboral, String nombreNegocio,
                          String direccionNegocio, int tiempoFuncionamientoNegocio, double ingresos) {
@@ -47,11 +47,9 @@ public class CreditoOnline extends Persona implements Serializable {
         this.direccionNegocio = direccionNegocio;
         this.tiempoFuncionamientoNegocio = tiempoFuncionamientoNegocio;
         this.ingresos = ingresos;
-    }
+    }*/
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+
 
     public int getCodigo() {
         return codigo;
@@ -61,15 +59,13 @@ public class CreditoOnline extends Persona implements Serializable {
         this.codigo = codigo;
     }
 
-    public boolean isEsSocio() {
-        return esSocio;
-    }
+
 
     public void setEsSocio(boolean esSocio) {
         this.esSocio = esSocio;
     }
 
-    public LineaCredito getLineaCredito() {
+/*    public LineaCredito getLineaCredito() {
         return lineaCredito;
     }
 
@@ -79,49 +75,45 @@ public class CreditoOnline extends Persona implements Serializable {
 
     public String getDestinoDeFondos() {
         return destinoDeFondos;
-    }
+    }*/
 
     public void setDestinoDeFondos(String destinoDeFondos) {
         this.destinoDeFondos = destinoDeFondos;
     }
 
-    public String getActividadLaboral() {
+   /* public String getActividadLaboral() {
         return actividadLaboral;
-    }
+    }*/
 
     public void setActividadLaboral(String actividadLaboral) {
         this.actividadLaboral = actividadLaboral;
     }
 
-    public String getNombreNegocio() {
+ /*   public String getNombreNegocio() {
         return nombreNegocio;
-    }
+    }*/
 
     public void setNombreNegocio(String nombreNegocio) {
         this.nombreNegocio = nombreNegocio;
     }
 
-    public String getDireccionNegocio() {
+ /*   public String getDireccionNegocio() {
         return direccionNegocio;
-    }
+    }*/
 
     public void setDireccionNegocio(String direccionNegocio) {
         this.direccionNegocio = direccionNegocio;
     }
 
-    public int getTiempoFuncionamientoNegocio() {
+/*    public int getTiempoFuncionamientoNegocio() {
         return tiempoFuncionamientoNegocio;
-    }
+    }*/
 
     public void setTiempoFuncionamientoNegocio(int tiempoFuncionamientoNegocio) {
         this.tiempoFuncionamientoNegocio = tiempoFuncionamientoNegocio;
     }
 
-    public double getIngresos() {
-        return ingresos;
-    }
+    /*public double getIngresos() { return ingresos; }*/
 
-    public void setIngresos(double ingresos) {
-        this.ingresos = ingresos;
-    }
+    public void setIngresos(double ingresos) { this.ingresos = ingresos; }
 }

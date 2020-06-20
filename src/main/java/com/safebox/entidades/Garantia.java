@@ -42,7 +42,7 @@ public abstract class Garantia  {
     }
 
 
-    @Override
+/*    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Garantia)) return false;
@@ -54,5 +54,5 @@ public abstract class Garantia  {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, credito);
-    }
+    }*/
 }

@@ -64,33 +64,33 @@ public abstract class CuentaAhorro {
         this.socio = socio;
     }
 
-    public Date getFechaApertura() {
+    /*public Date getFechaApertura() {
         return fechaApertura;
-    }
+    }*/
 
     public void setFechaApertura(Date fechaApertura) {
         this.fechaApertura = fechaApertura;
     }
 
-    public double getInteres() {
+    /*public double getInteres() {
         return interes;
-    }
+    }*/
 
     public void setInteres(double interes) {
         this.interes = interes;
     }
 
-    public String getEstado() {
+   /* public String getEstado() {
         return estado;
-    }
+    }*/
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public double getSaldo() {
+    /*public double getSaldo() {
         return saldo;
-    }
+    }*/
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
@@ -104,23 +104,23 @@ public abstract class CuentaAhorro {
         this.nick = nick;
     }
 
-    public double getRetiroMaximo() {
+    /*public double getRetiroMaximo() {
         return retiroMaximo;
-    }
+    }*/
 
     public void setRetiroMaximo(double retiroMaximo) {
         this.retiroMaximo = retiroMaximo;
     }
 
-    public Date getFechaUltimoIngreso() {
+    /*public Date getFechaUltimoIngreso() {
         return fechaUltimoIngreso;
-    }
+    }*/
 
     public void setFechaUltimoIngreso(Date fechaUltimoIngreso) {
         this.fechaUltimoIngreso = fechaUltimoIngreso;
     }
 
-    @Override
+   /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CuentaAhorro)) return false;
@@ -139,5 +139,5 @@ public abstract class CuentaAhorro {
     @Override
     public int hashCode() {
         return Objects.hash(codigo, socio, fechaApertura, interes, estado, saldo, nick, retiroMaximo, fechaUltimoIngreso);
-    }
+    }*/
 }
